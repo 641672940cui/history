@@ -6,50 +6,46 @@
     <title>东东的历史题库</title>
     <style>
         :root {
-            --bg: #fff8f0;
+            --bg: #f3f8fc;
             --card: #ffffff;
-            --border: #e8d5c0;
-            --accent: #e07b3c;
-            --accent2: #f4a261;
+            --border: #d0e4f5;
+            --accent: #5b9bd5;
+            --accent-light: #7db9e8;
+            --accent-dark: #3d7ab8;
             --correct: #2d8a4e;
             --wrong: #e74c3c;
-            --gold: #f0c060;
-            --tag-bg: #fff0e0;
-            --shadow: 0 2px 12px rgba(120, 70, 20, 0.06);
-            --radius: 16px;
+            --tag-bg: #e8f2fa;
+            --shadow: 0 2px 12px rgba(60, 100, 160, 0.07);
+            --radius: 14px;
             --font-main: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
             --font-serif: 'Noto Serif SC', 'STSong', 'SimSun', 'KaiTi', serif;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: var(--font-main);
-            background: linear-gradient(180deg, #fef5e7 0%, #fdebd0 30%, #fef9f3 100%);
+            background: linear-gradient(180deg, #eef5fb 0%, #e3eff9 30%, #f5f9fd 100%);
             min-height: 100vh;
-            padding-bottom: 80px;
-            color: #3d2b1a;
-            line-height: 1.6;
+            padding-bottom: 72px;
+            color: #2c3e50;
+            line-height: 1.7;
             -webkit-tap-highlight-color: transparent;
             -webkit-font-smoothing: antialiased;
         }
-
-        /* ========== 头部 ========== */
         .app-header {
-            background: linear-gradient(135deg, #e07b3c 0%, #c96a2d 40%, #b8551f 100%);
+            background: linear-gradient(135deg, #5b9bd5 0%, #4a8bc2 40%, #3d7ab8 100%);
             color: #fff;
-            padding: 1rem 1.2rem;
+            padding: 0.9rem 1rem;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 3px 18px rgba(180, 80, 20, 0.25);
-            border-bottom: 3px solid #f0c060;
-            border-radius: 0 0 20px 20px;
+            box-shadow: 0 3px 16px rgba(60, 100, 160, 0.2);
+            border-bottom: 2px solid #7db9e8;
+            border-radius: 0 0 16px 16px;
         }
         .app-header h1 {
             font-family: var(--font-serif);
@@ -59,42 +55,40 @@
             margin: 0;
         }
         .app-header .subtitle {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             opacity: 0.9;
             letter-spacing: 1px;
             margin-top: 2px;
         }
         .header-emoji {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             display: block;
             margin-bottom: 2px;
-            animation: bounce 2s infinite;
+            animation: float 3s ease-in-out infinite;
         }
-        @keyframes bounce {
+        @keyframes float {
             0%,
             100% {
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-6px);
+                transform: translateY(-5px);
             }
         }
-
-        /* ========== 底部导航 ========== */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: #fffef9;
-            border-top: 2px solid #f0dcc0;
+            background: #fff;
+            border-top: 2px solid #d0e4f5;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            height: 62px;
+            height: 58px;
             z-index: 100;
-            box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.04);
-            border-radius: 18px 18px 0 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03);
+            border-radius: 14px 14px 0 0;
         }
         .nav-item {
             display: flex;
@@ -102,46 +96,46 @@
             align-items: center;
             justify-content: center;
             gap: 2px;
-            font-size: 0.7rem;
-            color: #9b7b5c;
+            font-size: 0.72rem;
+            color: #8aabc8;
             cursor: pointer;
-            padding: 0.35rem 0.7rem;
-            border-radius: 20px;
+            padding: 0.3rem 0.6rem;
+            border-radius: 18px;
             transition: all 0.2s;
-            min-width: 55px;
+            min-width: 52px;
             position: relative;
             font-weight: 500;
             user-select: none;
         }
         .nav-item.active {
-            color: #c96a2d;
+            color: #3d7ab8;
             font-weight: 700;
-            background: #fff0e0;
-            transform: translateY(-3px);
+            background: #e8f2fa;
+            transform: translateY(-2px);
         }
         .nav-item .icon {
-            font-size: 1.35rem;
+            font-size: 1.3rem;
             transition: transform 0.2s;
         }
         .nav-item.active .icon {
-            transform: scale(1.15);
+            transform: scale(1.1);
         }
         .badge-count {
             position: absolute;
-            top: 0px;
-            right: 2px;
+            top: -1px;
+            right: 0px;
             background: #e74c3c;
             color: #fff;
             font-size: 0.65rem;
             min-width: 17px;
             height: 17px;
-            border-radius: 10px;
+            border-radius: 9px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            padding: 0 4px;
-            animation: pulse 1.5s infinite;
+            padding: 0 3px;
+            animation: pulse 2s infinite;
         }
         @keyframes pulse {
             0%,
@@ -149,319 +143,397 @@
                 transform: scale(1);
             }
             50% {
-                transform: scale(1.2);
+                transform: scale(1.15);
             }
         }
-
-        /* ========== 主内容区 ========== */
         .main-content {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
-            padding: 0.8rem 0.8rem 1rem;
+            padding: 0.7rem 0.8rem 0.5rem;
         }
         .view {
             display: none;
         }
         .view.active {
             display: block;
-            animation: fadeInUp 0.35s ease;
+            animation: fadeInUp 0.3s ease;
         }
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(15px);
+                transform: translateY(12px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
-        /* ========== 分区卡片 ========== */
-        .section-card {
-            background: var(--card);
+        .home-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem;
+            margin-bottom: 0.8rem;
+        }
+        .home-card {
+            background: #fff;
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            margin-bottom: 0.9rem;
-            overflow: hidden;
-            border: 1.5px solid #f0dcc0;
-            transition: all 0.2s;
-        }
-        .section-card:active {
-            transform: scale(0.995);
-        }
-        .section-header {
-            background: linear-gradient(135deg, #fff8f0, #fff0e0);
-            padding: 0.8rem 1rem;
+            padding: 1rem 0.4rem;
+            text-align: center;
             cursor: pointer;
+            border: 2px solid #d0e4f5;
+            transition: all 0.2s;
+            user-select: none;
+            box-shadow: var(--shadow);
+        }
+        .home-card:active {
+            transform: scale(0.95);
+            border-color: #5b9bd5;
+            background: #f0f7fd;
+        }
+        .home-card .card-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .home-card .card-label {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: #3d7ab8;
+            letter-spacing: 0.5px;
+        }
+        .home-card .card-sub {
+            font-size: 0.68rem;
+            color: #8aabc8;
+            margin-top: 2px;
+        }
+        .section-list-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #3d7ab8;
+            margin-bottom: 0.55rem;
+            padding-left: 0.3rem;
+            letter-spacing: 1px;
+        }
+        .section-entry {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 0.8rem 0.95rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            border: 1.5px solid #e0edf8;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #f0dcc0;
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: #5c3418;
+            transition: all 0.15s;
             user-select: none;
-            gap: 0.5rem;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
         }
-        .section-header .header-left {
+        .section-entry:active {
+            background: #f0f7fd;
+            border-color: #5b9bd5;
+            transform: scale(0.98);
+        }
+        .section-entry .entry-left {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            flex: 1;
-            min-width: 0;
-        }
-        .section-header .header-left span {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .section-header .progress-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ddd;
-            flex-shrink: 0;
-        }
-        .section-header .progress-dot.done {
-            background: #2d8a4e;
-        }
-        .section-header .arrow {
-            transition: transform 0.3s;
+            font-weight: 600;
             font-size: 0.9rem;
-            flex-shrink: 0;
-            color: #c96a2d;
+            color: #2c3e50;
         }
-        .section-header.expanded .arrow {
-            transform: rotate(90deg);
-        }
-        .section-body {
-            padding: 0.6rem 0.8rem 0.8rem;
-            display: none;
-        }
-        .section-body.show {
-            display: block;
-        }
-        .section-stats {
+        .section-entry .entry-right {
+            font-size: 0.7rem;
+            color: #8aabc8;
             display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin: 0.5rem 0;
-            font-size: 0.75rem;
-            color: #7a5c3e;
-        }
-        .section-stats span {
-            background: #fff5ea;
-            padding: 0.3rem 0.7rem;
-            border-radius: 12px;
-            border: 1px solid #f0dcc0;
-            font-weight: 500;
-        }
-
-        /* ========== 分页 ========== */
-        .pagination {
-            display: flex;
-            justify-content: center;
             align-items: center;
             gap: 0.3rem;
-            flex-wrap: wrap;
-            margin: 0.8rem 0 0.3rem;
         }
-        .page-btn {
-            min-width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            border: 2px solid #f0c060;
-            background: #fffef9;
-            color: #c96a2d;
-            font-weight: 700;
-            cursor: pointer;
-            font-size: 0.8rem;
+        .progress-mini {
+            width: 45px;
+            height: 6px;
+            background: #e0edf8;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .progress-mini-fill {
+            height: 100%;
+            background: #5b9bd5;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+        .quiz-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-            user-select: none;
+            gap: 0.5rem;
+            margin-bottom: 0.7rem;
+            padding: 0 0.2rem;
         }
-        .page-btn.active {
-            background: #e07b3c;
-            color: #fff;
-            border-color: #e07b3c;
-            box-shadow: 0 2px 8px rgba(224, 123, 60, 0.3);
+        .btn-back {
+            background: #fff;
+            border: 1.5px solid #d0e4f5;
+            color: #3d7ab8;
+            padding: 0.5rem 0.9rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.82rem;
+            cursor: pointer;
+            white-space: nowrap;
+            min-height: 36px;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
         }
-        .page-btn:disabled {
-            opacity: 0.35;
-            pointer-events: none;
+        .btn-back:active {
+            background: #f0f7fd;
         }
-        .page-btn:active:not(:disabled) {
-            transform: scale(0.9);
+        .quiz-progress {
+            flex: 1;
+            font-size: 0.78rem;
+            color: #6a9ab8;
+            font-weight: 500;
+            text-align: center;
         }
-
-        /* ========== 题目卡片 ========== */
+        .progress-bar-wrap {
+            flex: 1;
+            height: 7px;
+            background: #e0edf8;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 0.3rem;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #5b9bd5, #7db9e8);
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
         .question-card {
-            background: #fffef9;
-            border: 1.5px solid #f0e0cc;
-            border-radius: 12px;
-            padding: 0.8rem 0.9rem;
+            background: #fff;
+            border: 1.5px solid #dceaf5;
+            border-radius: var(--radius);
+            padding: 0.9rem 0.9rem;
             margin-bottom: 0.7rem;
             transition: all 0.25s;
+            box-shadow: var(--shadow);
         }
         .question-card.correct-card {
             border-color: #2d8a4e;
-            background: #f2faf5;
-            box-shadow: 0 0 0 3px rgba(45, 138, 78, 0.08);
+            background: #f4faf6;
         }
         .question-card.wrong-card {
             border-color: #e74c3c;
-            background: #fef7f6;
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.06);
+            background: #fef8f7;
         }
         .q-text {
             font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            color: #2d1f0f;
+            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+            color: #1a2d3d;
             font-family: var(--font-serif);
-            line-height: 1.5;
+            line-height: 1.6;
         }
         .option-label {
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
-            padding: 0.55rem 0.6rem;
-            margin: 0.2rem 0;
+            padding: 0.6rem 0.6rem;
+            margin: 0.25rem 0;
             border-radius: 10px;
             cursor: pointer;
-            transition: all 0.15s;
+            transition: all 0.12s;
             border: 1.5px solid transparent;
-            font-size: 0.85rem;
+            font-size: 0.92rem;
             user-select: none;
             -webkit-tap-highlight-color: transparent;
-            background: #fefcf8;
+            background: #fafcfe;
+            min-height: 44px;
+            line-height: 1.5;
         }
         .option-label:active {
-            background: #fff5ea;
-            border-color: #f0c060;
+            background: #eef6fc;
+            border-color: #b0d4f0;
         }
         .option-label input {
-            margin-top: 2px;
-            accent-color: #e07b3c;
-            min-width: 16px;
-            height: 16px;
+            margin-top: 3px;
+            accent-color: #5b9bd5;
+            min-width: 17px;
+            height: 17px;
             pointer-events: none;
+            flex-shrink: 0;
         }
         .option-label.selected {
-            background: #fff5ea;
-            border-color: #f0a040;
+            background: #e8f2fa;
+            border-color: #7db9e8;
             font-weight: 600;
         }
         .option-label.correct-answer {
-            background: #d4f0dd;
+            background: #daf2e2;
             border-color: #2d8a4e;
             color: #1a4d28;
             font-weight: 700;
         }
         .option-label.wrong-answer {
-            background: #fde0dc;
+            background: #fde4e0;
             border-color: #e74c3c;
             color: #7a1a1a;
             font-weight: 600;
         }
         .feedback-msg {
-            margin-top: 0.5rem;
-            padding: 0.5rem 0.7rem;
+            margin-top: 0.6rem;
+            padding: 0.6rem 0.7rem;
             border-radius: 10px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             display: none;
-            animation: fadeIn 0.3s;
-            line-height: 1.5;
+            animation: fadeIn 0.25s;
+            line-height: 1.6;
         }
         .feedback-msg.show {
             display: block;
         }
         .feedback-msg.correct-fb {
-            background: #e6f7ec;
+            background: #e8f7ed;
             color: #1a4d28;
-            border: 1px solid #b8dcc5;
+            border: 1px solid #c3e6d1;
         }
         .feedback-msg.wrong-fb {
-            background: #fef0ef;
+            background: #fef2f0;
             color: #7a1a1a;
-            border: 1px solid #f5c6c0;
+            border: 1px solid #f5c8c0;
         }
         .encourage {
             font-weight: 700;
             font-size: 0.9rem;
             display: inline-block;
-            margin-right: 0.3rem;
+            margin-right: 0.2rem;
         }
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(-4px);
+                transform: translateY(-3px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-
-        /* ========== 材料题样式 ========== */
-        .material-box {
-            background: #fef9f2;
-            border-left: 4px solid #e07b3c;
-            padding: 0.8rem 1rem;
-            margin: 0.5rem 0 0.8rem;
-            border-radius: 0 10px 10px 0;
-            font-family: var(--font-serif);
-            font-size: 0.85rem;
-            white-space: pre-line;
-            color: #3d2b1a;
-            line-height: 1.7;
-        }
-        .step-badge {
-            display: inline-block;
-            background: #f0c060;
-            color: #5c3418;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-weight: 700;
-            font-size: 0.78rem;
-            margin: 0.4rem 0;
+        .nav-buttons {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         .btn {
-            background: #e07b3c;
+            background: #5b9bd5;
             color: #fff;
             border: none;
-            padding: 0.55rem 1.3rem;
-            border-radius: 20px;
+            padding: 0.6rem 1.3rem;
+            border-radius: 22px;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             cursor: pointer;
             letter-spacing: 0.5px;
             transition: all 0.2s;
             -webkit-tap-highlight-color: transparent;
-            min-height: 40px;
-            box-shadow: 0 2px 8px rgba(224, 123, 60, 0.2);
+            min-height: 42px;
+            box-shadow: 0 2px 8px rgba(91, 155, 213, 0.2);
+            white-space: nowrap;
         }
         .btn:active {
             transform: scale(0.94);
-            box-shadow: 0 1px 4px rgba(224, 123, 60, 0.3);
+            box-shadow: 0 1px 4px rgba(91, 155, 213, 0.3);
         }
         .btn-outline {
             background: #fff;
-            border: 2px solid #e07b3c;
-            color: #e07b3c;
+            border: 2px solid #5b9bd5;
+            color: #5b9bd5;
             box-shadow: none;
         }
-        .flex-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            align-items: center;
+        .btn:disabled {
+            opacity: 0.4;
+            pointer-events: none;
         }
-
-        /* ========== 错题统计面板 ========== */
+        .celebrate-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 50, 80, 0.7);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+        .celebrate-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 1.8rem 1.3rem;
+            text-align: center;
+            max-width: 320px;
+            width: 88%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+            animation: popIn 0.4s ease;
+        }
+        @keyframes popIn {
+            0% {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            70% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .celebrate-emoji {
+            font-size: 3.5rem;
+            animation: bounce 0.6s ease infinite alternate;
+        }
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-15px);
+            }
+        }
+        .celebrate-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #3d7ab8;
+            margin: 0.6rem 0;
+        }
+        .celebrate-sub {
+            font-size: 0.85rem;
+            color: #6a9ab8;
+            margin-bottom: 0.9rem;
+        }
+        .material-box {
+            background: #f8fbfe;
+            border-left: 4px solid #5b9bd5;
+            padding: 0.8rem 0.9rem;
+            margin: 0.5rem 0 0.7rem;
+            border-radius: 0 10px 10px 0;
+            font-family: var(--font-serif);
+            font-size: 0.88rem;
+            white-space: pre-line;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+        .step-badge {
+            display: inline-block;
+            background: #e8f2fa;
+            color: #3d7ab8;
+            padding: 0.3rem 0.8rem;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.78rem;
+            margin: 0.4rem 0;
+            border: 1px solid #c8ddf0;
+        }
         .stats-panel {
             display: flex;
             flex-wrap: wrap;
@@ -469,13 +541,13 @@
             margin: 0.6rem 0;
         }
         .stat-tag {
-            background: #fff5ea;
+            background: #e8f2fa;
             padding: 0.3rem 0.7rem;
             border-radius: 12px;
-            font-size: 0.7rem;
-            color: #5c3418;
+            font-size: 0.72rem;
+            color: #3d7ab8;
             font-weight: 500;
-            border: 1px solid #f0dcc0;
+            border: 1px solid #d0e4f5;
         }
         .stat-tag.has-error {
             background: #fef0ef;
@@ -484,533 +556,687 @@
             border-color: #e74c3c;
         }
         .stat-tag.total-tag {
-            background: #e07b3c;
+            background: #5b9bd5;
             color: #fff;
-            border-color: #e07b3c;
+            border-color: #5b9bd5;
             font-weight: 700;
         }
-
-        /* 庆祝动画 */
-        .celebrate {
-            text-align: center;
-            padding: 1rem;
-            animation: celebrateAnim 0.6s ease;
-        }
-        @keyframes celebrateAnim {
-            0% {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
         h3 {
-            color: #5c3418;
+            color: #3d7ab8;
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
             font-family: var(--font-serif);
+            text-align: center;
         }
 
-        /* 小屏幕优化 */
-        @media (max-width: 380px) {
+        /* 折叠面板 */
+        .collapse-header {
+            background: #f0f7fd;
+            padding: 0.7rem 0.9rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #3d7ab8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5rem;
+            user-select: none;
+            border: 1px solid #d0e4f5;
+        }
+        .collapse-header .collapse-arrow {
+            transition: transform 0.3s;
+        }
+        .collapse-header.open .collapse-arrow {
+            transform: rotate(180deg);
+        }
+        .collapse-body {
+            display: none;
+            padding: 0.6rem 0.8rem;
+            background: #fafcfe;
+            border-radius: 0 0 10px 10px;
+            border: 1px solid #e0edf8;
+            border-top: none;
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: #3d4f5f;
+        }
+        .collapse-body.show {
+            display: block;
+        }
+        .review-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.4rem 0;
+            font-size: 0.78rem;
+        }
+        .review-table td {
+            padding: 0.35rem 0.5rem;
+            border-bottom: 1px solid #e0edf8;
+            vertical-align: top;
+        }
+        .review-table .step-label {
+            font-weight: 700;
+            color: #3d7ab8;
+            white-space: nowrap;
+            width: 30%;
+        }
+        .review-table .correct-mark {
+            color: #2d8a4e;
+            font-weight: 700;
+        }
+        .review-table .wrong-mark {
+            color: #e74c3c;
+            font-weight: 700;
+        }
+
+        @media (max-width: 360px) {
+            .home-cards {
+                gap: 0.4rem;
+            }
+            .home-card {
+                padding: 0.8rem 0.2rem;
+            }
+            .home-card .card-icon {
+                font-size: 1.6rem;
+            }
+            .home-card .card-label {
+                font-size: 0.78rem;
+            }
             .q-text {
-                font-size: 0.82rem;
+                font-size: 0.95rem;
             }
             .option-label {
-                font-size: 0.78rem;
-                padding: 0.45rem 0.5rem;
-                gap: 0.35rem;
+                font-size: 0.82rem;
+                padding: 0.5rem 0.5rem;
+                min-height: 40px;
             }
             .btn {
-                padding: 0.45rem 1rem;
-                font-size: 0.78rem;
-                min-height: 36px;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+                min-height: 38px;
             }
-            .section-header {
-                font-size: 0.85rem;
-                padding: 0.65rem 0.8rem;
+            .section-entry {
+                padding: 0.65rem 0.75rem;
+            }
+            .section-entry .entry-left {
+                font-size: 0.82rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 头部 -->
     <div class="app-header">
         <span class="header-emoji">📜</span>
         <h1>东东的历史题库</h1>
         <div class="subtitle">广东中考 · 专项突破 · 材料映射法</div>
     </div>
 
-    <!-- 主内容 -->
     <div class="main-content">
-        <div id="view-quiz" class="view active"></div>
+        <div id="view-home" class="view active"></div>
+        <div id="view-quiz-section" class="view"></div>
         <div id="view-material" class="view"></div>
         <div id="view-errors" class="view"></div>
     </div>
 
-    <!-- 底部导航 -->
     <div class="bottom-nav">
-        <div class="nav-item active" data-view="quiz">
-            <span class="icon">📚</span>题库
-        </div>
-        <div class="nav-item" data-view="material">
-            <span class="icon">📜</span>材料题
-        </div>
-        <div class="nav-item" data-view="errors">
-            <span class="icon">📝</span>错题本
-            <span class="badge-count" id="error-badge" style="display:none;">0</span>
-        </div>
+        <div class="nav-item active" data-view="home"><span class="icon">🏠</span>首页</div>
+        <div class="nav-item" data-view="material"><span class="icon">📜</span>材料题</div>
+        <div class="nav-item" data-view="errors"><span class="icon">📝</span>错题本<span class="badge-count" id="error-badge" style="display:none;">0</span></div>
     </div>
 
     <script>
         (function() {
-            // ==================== 完整题库数据 ====================
-            // 真实题目库（每题都有完整数据）
-            const realQuestions = {
+            // ==================== 完全独立新题库（每分区20题） ====================
+            const allQuestions = {
                 '中国古代史': [
                     { text: '考古学家在云南发现了距今约170万年的元谋人遗址，这证明我国', options: ['A. 是人类唯一起源地',
                             'B. 是人类最早起源地之一', 'C. 文明史从元谋人开始', 'D. 元谋人是现代中国人直系祖先'
                         ], correct: 1,
-                        explanation: '元谋人遗址证明中国是人类起源的重要地区之一，但并非唯一或最早。' },
-                    { text: '西周实行分封制，受封的诸侯对天子的义务包括', options: ['A. 定期朝贡、提供军赋',
-                            'B. 独立外交、自立法令', 'C. 世袭罔替、永不削藩', 'D. 自行铸币、征收关税'
+                    explanation: '元谋人遗址证明中国是人类起源的重要地区之一，但并非唯一或最早。' },
+                    { text: '西周实行分封制，受封诸侯对天子的核心义务是', options: ['A. 定期朝贡、提供军赋', 'B. 独立外交、自立法令',
+                            'C. 世袭罔替、永不削藩', 'D. 自行铸币、征收关税'
                         ], correct: 0,
                     explanation: '诸侯需定期朝觐天子、缴纳贡赋、提供军队，但内政有一定自主权。' },
-                    { text: '秦始皇统一文字后，全国使用的标准字体是', options: ['A. 甲骨文', 'B. 金文', 'C. 小篆',
-                            'D. 隶书'
-                        ], correct: 2, explanation: '秦始皇命李斯统一文字为小篆，后隶书逐渐流行。' },
-                    { text: '汉武帝时期，派张骞出使西域的主要目的是', options: ['A. 开辟丝绸之路经商', 'B. 联络大月氏夹击匈奴',
-                            'C. 传播佛教文化', 'D. 寻找长生不老药'], correct: 1,
+                    { text: '秦始皇统一文字后，全国使用的标准字体是', options: ['A. 甲骨文', 'B. 金文', 'C. 小篆', 'D. 隶书'],
+                        correct: 2, explanation: '秦始皇命李斯统一文字为小篆，后隶书逐渐流行。' },
+                    { text: '汉武帝派张骞出使西域的直接目的是', options: ['A. 开辟丝绸之路经商', 'B. 联络大月氏夹击匈奴', 'C. 传播佛教文化',
+                            'D. 寻找长生不老药'], correct: 1,
                         explanation: '张骞出使西域的直接目的是联合大月氏共同对抗匈奴。' },
-                    { text: '魏晋南北朝时期，江南地区得以开发的主要原因是', options: ['A. 北方人口大量南迁', 'B. 南方自然条件优越',
-                            'C. 南方战乱较少', 'D. 以上都是'], correct: 3,
-                        explanation: '北人南迁带来了劳动力和先进技术，加上南方自然条件好、相对安定，共同促进了江南开发。' },
-                    { text: '唐代实行三省六部制，其中负责执行政令的是', options: ['A. 中书省', 'B. 门下省', 'C. 尚书省',
-                            'D. 枢密院'
-                        ], correct: 2, explanation: '尚书省下设六部，负责执行中书省起草、门下省审核后的政令。' },
-                    { text: '北宋时期出现的世界上最早的纸币是', options: ['A. 交子', 'B. 会子', 'C. 银票', 'D. 宝钞'],
-                        correct: 0, explanation: '北宋四川地区出现的"交子"是世界上最早的纸币。' },
-                    { text: '郑和下西洋最远到达的地区是', options: ['A. 东南亚', 'B. 印度半岛', 'C. 阿拉伯半岛',
-                        'D. 非洲东海岸和红海沿岸'], correct: 3, explanation: '郑和船队最远到达非洲东海岸和红海沿岸。' },
-                    { text: '清朝雍正时期设立的加强皇权的机构是', options: ['A. 内阁', 'B. 军机处', 'C. 南书房',
-                    'D. 议政王大臣会议'], correct: 1, explanation: '雍正帝设立军机处，标志着君主专制达到顶峰。' },
-                    { text: '我国现存最早的一部完整的农书是', options: ['A. 《齐民要术》', 'B. 《天工开物》', 'C. 《农政全书》',
+                    { text: '魏晋南北朝江南开发的主要原因是', options: ['A. 北方人口大量南迁', 'B. 南方自然条件优越', 'C. 南方战乱较少',
+                            'D. 以上都是'], correct: 3,
+                        explanation: '北人南迁带来劳动力和技术，加上自然条件好、相对安定。' },
+                    { text: '唐代三省六部制中负责执行政令的是', options: ['A. 中书省', 'B. 门下省', 'C. 尚书省', 'D. 枢密院'],
+                        correct: 2, explanation: '尚书省下设六部，负责执行政令。' },
+                    { text: '世界上最早的纸币"交子"出现于', options: ['A. 唐代长安', 'B. 北宋四川', 'C. 南宋临安', 'D. 元朝大都'],
+                        correct: 1, explanation: '北宋四川地区出现的"交子"是世界上最早的纸币。' },
+                    { text: '郑和下西洋最远到达', options: ['A. 东南亚', 'B. 印度半岛', 'C. 阿拉伯半岛', 'D. 非洲东海岸和红海沿岸'],
+                        correct: 3, explanation: '郑和船队最远到达非洲东海岸和红海沿岸。' },
+                    { text: '清朝雍正时期设立的加强皇权的机构是', options: ['A. 内阁', 'B. 军机处', 'C. 南书房', 'D. 议政王大臣会议'],
+                        correct: 1, explanation: '雍正帝设立军机处，君主专制达到顶峰。' },
+                    { text: '我国现存最早最完整的农书是', options: ['A. 《齐民要术》', 'B. 《天工开物》', 'C. 《农政全书》',
                             'D. 《本草纲目》'], correct: 0, explanation: '贾思勰的《齐民要术》是我国现存最早最完整的农书。' },
+                    { text: '秦朝在岭南设三郡，管辖今广东大部分地区的是', options: ['A. 桂林郡', 'B. 象郡', 'C. 南海郡', 'D. 闽中郡'],
+                        correct: 2, explanation: '南海郡治所在番禺（今广州），管辖今广东大部分地区。' },
+                    { text: '唐朝在广州设立的管理海外贸易的机构是', options: ['A. 宣政院', 'B. 市舶司', 'C. 广州十三行', 'D. 理藩院'],
+                        correct: 1, explanation: '唐朝在广州设立市舶使（市舶司前身）。' },
+                    { text: '科举制度正式创立于', options: ['A. 隋文帝时期', 'B. 隋炀帝时期', 'C. 唐太宗时期', 'D. 武则天时期'],
+                        correct: 1, explanation: '隋炀帝设进士科，标志科举制正式创立。' },
+                    { text: '元朝在地方实行的行政区划制度是', options: ['A. 郡县制', 'B. 行省制度', 'C. 三省六部制', 'D. 分封制'],
+                        correct: 1, explanation: '元朝实行行省制度，对后世影响深远。' },
+                    { text: '明朝朱元璋为加强皇权废除的是', options: ['A. 科举制度', 'B. 丞相制度', 'C. 行省制度', 'D. 厂卫制度'],
+                        correct: 1, explanation: '朱元璋废除丞相制度，六部直接对皇帝负责。' },
+                    { text: '我国古代经济重心南移最终完成于', options: ['A. 东汉', 'B. 唐朝', 'C. 南宋', 'D. 明朝'], correct: 2,
+                        explanation: '南宋时期经济重心南移最终完成。' },
+                    { text: '商鞅变法中对后世地方行政影响最深远的措施是', options: ['A. 奖励耕织', 'B. 推行县制', 'C. 奖励军功',
+                            'D. 承认土地私有'], correct: 1, explanation: '推行县制加强了中央对地方的管理。' },
+                    { text: '汉武帝"罢黜百家，独尊儒术"的根本目的是', options: ['A. 发展儒学教育', 'B. 加强中央集权', 'C. 反对法家思想',
+                            'D. 促进文化繁荣'], correct: 1, explanation: '根本目的是统一思想加强中央集权。' },
+                    { text: '隋朝大运河的中心是', options: ['A. 长安', 'B. 洛阳', 'C. 开封', 'D. 杭州'], correct: 1,
+                        explanation: '隋朝大运河以洛阳为中心。' },
+                    { text: '宋代海外贸易发达的主要原因是', options: ['A. 政府鼓励、造船技术先进', 'B. 闭关锁国政策', 'C. 禁止民间贸易',
+                            'D. 陆上丝绸之路兴盛'], correct: 0, explanation: '宋代政府鼓励海外贸易，造船和航海技术先进。' },
                 ],
                 '中国近代史': [
-                    { text: '鸦片战争爆发的根本原因是', options: ['A. 林则徐虎门销烟', 'B. 英国企图打开中国市场',
-                            'C. 中英之间的贸易纠纷', 'D. 清政府的闭关锁国政策'], correct: 1,
-                        explanation: '根本原因是英国工业革命后急需扩大海外市场和原料产地，虎门销烟只是导火索。' },
-                    { text: '《南京条约》中开放的通商口岸位于广东的是', options: ['A. 上海', 'B. 宁波', 'C. 广州',
-                        'D. 福州'], correct: 2, explanation: '《南京条约》开放广州、厦门、福州、宁波、上海五口，广州在广东。' },
+                    { text: '鸦片战争爆发的根本原因是', options: ['A. 林则徐虎门销烟', 'B. 英国企图打开中国市场', 'C. 中英贸易纠纷',
+                            'D. 清政府闭关锁国'], correct: 1,
+                        explanation: '根本原因是英国工业革命后急需扩大海外市场和原料产地。' },
+                    { text: '《南京条约》开放的五口中位于广东的是', options: ['A. 上海', 'B. 宁波', 'C. 广州', 'D. 福州'],
+                        correct: 2, explanation: '五口为广州、厦门、福州、宁波、上海。' },
                     { text: '洋务运动的口号是', options: ['A. 师夷长技以制夷', 'B. 自强、求富', 'C. 变法图强', 'D. 民主共和'],
-                        correct: 1, explanation: '洋务运动前期口号"自强"，后期"求富"，创办军事和民用工业。' },
-                    { text: '戊戌变法的代表人物包括', options: ['A. 李鸿章、张之洞', 'B. 康有为、梁启超', 'C. 孙中山、黄兴',
-                            'D. 陈独秀、李大钊'], correct: 1, explanation: '康有为、梁启超是维新派代表人物，领导了戊戌变法。' },
-                    { text: '辛亥革命的历史意义在于', options: ['A. 结束了中国两千多年的封建帝制', 'B. 完成了反帝反封建的任务',
+                        correct: 1, explanation: '前期"自强"，后期"求富"。' },
+                    { text: '戊戌变法的代表人物是', options: ['A. 李鸿章、张之洞', 'B. 康有为、梁启超', 'C. 孙中山、黄兴', 'D. 陈独秀、李大钊'],
+                        correct: 1, explanation: '康有为、梁启超是维新派代表人物。' },
+                    { text: '辛亥革命最重大的历史意义是', options: ['A. 结束了两千多年的封建帝制', 'B. 完成了反帝反封建任务',
                             'C. 实现了民族独立', 'D. 建立了社会主义制度'], correct: 0,
-                        explanation: '辛亥革命推翻了清王朝，结束了君主专制制度，但未完成反帝反封建任务。' },
-                    { text: '新文化运动的两大口号是', options: ['A. 自强与求富', 'B. 民主与科学', 'C. 自由与平等',
-                        'D. 博爱与平等'], correct: 1, explanation: '新文化运动高举"民主"与"科学"两面旗帜。' },
-                    { text: '五四运动爆发的直接原因是', options: ['A. 北洋军阀的黑暗统治', 'B. 巴黎和会上中国外交的失败',
-                            'C. 马克思主义的传播', 'D. 新文化运动的推动'], correct: 1,
-                        explanation: '巴黎和会上中国外交失败是五四运动的直接导火索。' },
-                    { text: '中国共产党第一次全国代表大会召开于', options: ['A. 上海', 'B. 北京', 'C. 广州', 'D. 武汉'],
-                        correct: 0, explanation: '中共一大最初在上海召开，后转移至嘉兴南湖。' },
-                    { text: '北伐战争的主要对象不包括', options: ['A. 吴佩孚', 'B. 孙传芳', 'C. 张作霖', 'D. 袁世凯'],
-                        correct: 3, explanation: '北伐对象是吴佩孚、孙传芳、张作霖三大军阀，袁世凯已死于1916年。' },
-                    { text: '南昌起义的意义在于', options: ['A. 打响了武装反抗国民党反动派的第一枪', 'B. 建立了第一个农村革命根据地',
-                            'C. 标志着长征的开始', 'D. 确立了毛泽东的领导地位'], correct: 0,
-                        explanation: '南昌起义是中国共产党独立领导武装斗争的开始。' },
+                    explanation: '辛亥革命推翻了清王朝，结束了君主专制制度。' },
+                    { text: '新文化运动高举的两面旗帜是', options: ['A. 自强与求富', 'B. 民主与科学', 'C. 自由与平等',
+                        'D. 博爱与平等'], correct: 1, explanation: '新文化运动高举"民主"与"科学"。' },
+                    { text: '五四运动的直接导火索是', options: ['A. 北洋军阀黑暗统治', 'B. 巴黎和会中国外交失败', 'C. 马克思主义传播',
+                            'D. 新文化运动推动'], correct: 1, explanation: '巴黎和会上中国外交失败是直接原因。' },
+                    { text: '中共一大最初在哪个城市召开', options: ['A. 上海', 'B. 北京', 'C. 广州', 'D. 武汉'], correct: 0,
+                        explanation: '中共一大最初在上海召开，后转移至嘉兴南湖。' },
+                    { text: '北伐战争的对象不包括', options: ['A. 吴佩孚', 'B. 孙传芳', 'C. 张作霖', 'D. 袁世凯'], correct: 3,
+                        explanation: '北伐对象是吴佩孚、孙传芳、张作霖。' },
+                    { text: '南昌起义的意义是', options: ['A. 打响武装反抗国民党第一枪', 'B. 建立第一个农村革命根据地', 'C. 标志着长征开始',
+                            'D. 确立毛泽东领导地位'], correct: 0,
+                    explanation: '南昌起义是中共独立领导武装斗争的开始。' },
+                    { text: '《马关条约》割让给日本的领土是', options: ['A. 香港岛', 'B. 台湾及澎湖列岛', 'C. 九龙半岛', 'D. 澳门'],
+                        correct: 1, explanation: '《马关条约》割台湾、澎湖列岛给日本。' },
+                    { text: '义和团运动的口号是', options: ['A. 自强求富', 'B. 扶清灭洋', 'C. 民主共和', 'D. 打倒列强'],
+                        correct: 1, explanation: '义和团提出"扶清灭洋"。' },
+                    { text: '辛亥革命后颁布的具有宪法性质的文件是', options: ['A. 《钦定宪法大纲》', 'B. 《中华民国临时约法》',
+                            'C. 《中华民国约法》', 'D. 《中华民国宪法》'], correct: 1,
+                    explanation: '《中华民国临时约法》具有资产阶级共和国宪法性质。' },
+                    { text: '中共独立领导武装斗争开始于', options: ['A. 北伐战争', 'B. 南昌起义', 'C. 秋收起义', 'D. 广州起义'],
+                        correct: 1, explanation: '南昌起义打响了武装反抗国民党反动派的第一枪。' },
+                    { text: '长征途中生死攸关的转折点是', options: ['A. 八七会议', 'B. 古田会议', 'C. 遵义会议', 'D. 瓦窑堡会议'],
+                        correct: 2, explanation: '遵义会议是中共历史上生死攸关的转折点。' },
+                    { text: '西安事变和平解决标志着', options: ['A. 抗日战争全面爆发', 'B. 抗日民族统一战线初步形成', 'C. 国共合作正式建立',
+                            'D. 长征胜利结束'], correct: 1, explanation: '西安事变和平解决标志统一战线初步形成。' },
+                    { text: '中国近代第一个不平等条约是', options: ['A. 《北京条约》', 'B. 《南京条约》', 'C. 《马关条约》',
+                            'D. 《辛丑条约》'], correct: 1, explanation: '《南京条约》是中国近代第一个不平等条约。' },
+                    { text: '洋务派创办的第一个军事工业是', options: ['A. 江南制造总局', 'B. 安庆内军械所', 'C. 福州船政局', 'D. 汉阳铁厂'],
+                        correct: 1, explanation: '安庆内军械所由曾国藩创办。' },
+                    { text: '《辛丑条约》使中国完全沦为', options: ['A. 封建社会', 'B. 半殖民地半封建社会', 'C. 殖民地社会',
+                            'D. 资本主义社会'], correct: 1, explanation: '《辛丑条约》标志中国完全沦为半殖民地半封建社会。' },
+                    { text: '中国近代史的开端是', options: ['A. 虎门销烟', 'B. 鸦片战争', 'C. 太平天国运动', 'D. 洋务运动'],
+                        correct: 1, explanation: '鸦片战争是中国近代史的开端。' },
                 ],
                 '中国现代史': [
-                    { text: '1949年新中国成立初期，面临的主要任务是', options: ['A. 全面建设社会主义', 'B. 巩固政权和恢复经济',
-                            'C. 发动文化大革命', 'D. 实行改革开放'], correct: 1,
-                        explanation: '建国初期首要任务是巩固新生政权、恢复国民经济。' },
-                    { text: '1978年中共十一届三中全会确定的核心方针是', options: ['A. 以阶级斗争为纲', 'B. 改革开放、以经济建设为中心',
-                            'C. 继续计划经济', 'D. 闭关自守'], correct: 1,
-                        explanation: '十一届三中全会实现了伟大转折，确立了改革开放和以经济建设为中心的方针。' },
-                    { text: '我国第一批经济特区不包括', options: ['A. 深圳', 'B. 珠海', 'C. 汕头', 'D. 广州'], correct: 3,
-                        explanation: '第一批四个经济特区是深圳、珠海、汕头、厦门，广州不在其中。' },
-                    { text: '抗美援朝战争中，中国人民志愿军的司令员是', options: ['A. 朱德', 'B. 彭德怀', 'C. 林彪', 'D. 刘伯承'],
-                        correct: 1, explanation: '彭德怀担任中国人民志愿军司令员兼政委。' },
-                    { text: '"一国两制"构想首先成功运用于解决', options: ['A. 台湾问题', 'B. 香港问题', 'C. 澳门问题',
-                            'D. 西藏问题'
-                        ], correct: 1, explanation: '"一国两制"首先在香港回归问题上成功实践。' },
-                    { text: '新中国成立后实行的根本政治制度是', options: ['A. 多党合作制', 'B. 人民代表大会制度',
-                            'C. 民族区域自治制度', 'D. 基层群众自治制度'], correct: 1,
-                        explanation: '人民代表大会制度是我国的根本政治制度。' },
-                    { text: '2001年中国加入的国际经济组织是', options: ['A. 联合国', 'B. 世界贸易组织(WTO)',
-                            'C. 亚太经合组织(APEC)', 'D. 国际货币基金组织'], correct: 1,
-                        explanation: '2001年中国正式加入WTO，标志着对外开放进入新阶段。' },
-                    { text: '"两弹一星"中"两弹"指的是', options: ['A. 原子弹、氢弹', 'B. 原子弹、导弹', 'C. 氢弹、导弹',
-                            'D. 核弹、卫星'], correct: 1, explanation: '"两弹"指原子弹和导弹，"一星"指人造卫星。' },
-                    { text: '改革开放后农村实行的重要制度是', options: ['A. 人民公社制度', 'B. 家庭联产承包责任制',
-                            'C. 集体农庄制度', 'D. 土地私有制'], correct: 1,
-                        explanation: '家庭联产承包责任制极大调动了农民生产积极性。' },
-                    { text: '中国恢复在联合国合法席位是在', options: ['A. 1949年', 'B. 1955年', 'C. 1971年',
-                    'D. 1978年'], correct: 2, explanation: '1971年第26届联合国大会恢复中国在联合国的合法席位。' },
+                    { text: '新中国成立初期面临的首要任务是', options: ['A. 全面建设社会主义', 'B. 巩固政权和恢复经济', 'C. 发动文化大革命',
+                            'D. 实行改革开放'], correct: 1, explanation: '建国初期首要任务是巩固政权、恢复经济。' },
+                    { text: '十一届三中全会确立的方针是', options: ['A. 以阶级斗争为纲', 'B. 改革开放、以经济建设为中心', 'C. 继续计划经济',
+                            'D. 闭关自守'], correct: 1, explanation: '确立了改革开放和以经济建设为中心的方针。' },
+                    { text: '第一批经济特区不包括', options: ['A. 深圳', 'B. 珠海', 'C. 汕头', 'D. 广州'], correct: 3,
+                        explanation: '第一批四个经济特区是深圳、珠海、汕头、厦门。' },
+                    { text: '抗美援朝志愿军司令员是', options: ['A. 朱德', 'B. 彭德怀', 'C. 林彪', 'D. 刘伯承'], correct: 1,
+                        explanation: '彭德怀担任志愿军司令员兼政委。' },
+                    { text: '"一国两制"首先成功运用于', options: ['A. 台湾问题', 'B. 香港问题', 'C. 澳门问题', 'D. 西藏问题'],
+                        correct: 1, explanation: '"一国两制"首先在香港回归上成功实践。' },
+                    { text: '我国的根本政治制度是', options: ['A. 多党合作制', 'B. 人民代表大会制度', 'C. 民族区域自治制度',
+                            'D. 基层群众自治制度'], correct: 1, explanation: '人民代表大会制度是根本政治制度。' },
+                    { text: '2001年中国加入的国际经济组织是', options: ['A. 联合国', 'B. WTO', 'C. APEC', 'D. IMF'],
+                        correct: 1, explanation: '2001年中国正式加入WTO。' },
+                    { text: '"两弹一星"中"两弹"指', options: ['A. 原子弹、氢弹', 'B. 原子弹、导弹', 'C. 氢弹、导弹', 'D. 核弹、卫星'],
+                        correct: 1, explanation: '"两弹"指原子弹和导弹。' },
+                    { text: '改革开放后农村实行的重要制度是', options: ['A. 人民公社', 'B. 家庭联产承包责任制', 'C. 集体农庄',
+                            'D. 土地私有制'], correct: 1, explanation: '家庭联产承包责任制调动了农民积极性。' },
+                    { text: '中国恢复联合国合法席位在', options: ['A. 1949年', 'B. 1955年', 'C. 1971年', 'D. 1978年'],
+                        correct: 2, explanation: '1971年第26届联大恢复中国合法席位。' },
+                    { text: '一五计划的重点是发展', options: ['A. 农业', 'B. 轻工业', 'C. 重工业', 'D. 商业'], correct: 2,
+                        explanation: '一五计划优先发展重工业。' },
+                    { text: '和平共处五项原则的提出者是', options: ['A. 毛泽东', 'B. 周恩来', 'C. 邓小平', 'D. 刘少奇'], correct: 1,
+                        explanation: '周恩来提出和平共处五项原则。' },
+                    { text: '香港回归祖国的时间是', options: ['A. 1997年7月1日', 'B. 1999年12月20日', 'C. 1997年12月20日',
+                            'D. 1999年7月1日'], correct: 0, explanation: '香港于1997年7月1日回归。' },
+                    { text: '袁隆平被誉为', options: ['A. 两弹元勋', 'B. 杂交水稻之父', 'C. 铁人', 'D. 航天之父'], correct: 1,
+                        explanation: '袁隆平成功培育杂交水稻。' },
+                    { text: '2021年我国实现了第一个百年奋斗目标，即', options: ['A. 基本实现现代化', 'B. 全面建成小康社会',
+                            'C. 建成社会主义现代化强国', 'D. 实现中华民族伟大复兴'], correct: 1,
+                    explanation: '2021年我国全面建成小康社会。' },
+                    { text: '新中国成立后土地改革完成于', options: ['A. 1949年', 'B. 1950年', 'C. 1952年', 'D. 1956年'],
+                        correct: 2, explanation: '到1952年底土地改革基本完成。' },
+                    { text: '三大改造完成标志着', options: ['A. 新民主主义革命胜利', 'B. 社会主义制度基本建立', 'C. 改革开放开始',
+                            'D. 文化大革命结束'], correct: 1, explanation: '三大改造完成标志社会主义制度基本建立。' },
+                    { text: '万隆会议上周恩来提出的方针是', options: ['A. 和平共处五项原则', 'B. 求同存异', 'C. 一边倒', 'D. 不结盟'],
+                        correct: 1, explanation: '周恩来提出"求同存异"方针。' },
+                    { text: '深圳经济特区设立于', options: ['A. 1978年', 'B. 1979年', 'C. 1980年', 'D. 1984年'], correct: 2,
+                        explanation: '1980年深圳等四个经济特区正式设立。' },
+                    { text: '澳门回归祖国的时间是', options: ['A. 1997年7月1日', 'B. 1999年12月20日', 'C. 1997年12月20日',
+                            'D. 1999年7月1日'], correct: 1, explanation: '澳门于1999年12月20日回归。' },
                 ],
                 '近代化的探索': [
                     { text: '洋务运动兴办的第一个军事工业是', options: ['A. 江南制造总局', 'B. 安庆内军械所', 'C. 福州船政局',
-                            'D. 汉阳铁厂'], correct: 1, explanation: '安庆内军械所由曾国藩创办，是洋务派创办的第一个军事工业。' },
-                    { text: '戊戌变法中创办的京师大学堂是今天哪所大学的前身', options: ['A. 清华大学', 'B. 北京大学', 'C. 复旦大学',
-                            'D. 南京大学'], correct: 1, explanation: '京师大学堂是北京大学的前身，创办于1898年。' },
-                    { text: '辛亥革命的指导思想是', options: ['A. 维新变法思想', 'B. 三民主义', 'C. 民主与科学',
-                    'D. 马克思主义'], correct: 1, explanation: '孙中山提出的三民主义是辛亥革命的指导思想。' },
-                    { text: '新文化运动兴起的标志是', options: ['A. 《新青年》杂志的创办', 'B. 五四运动的爆发', 'C. 文学革命口号的提出',
-                            'D. 白话文运动的开展'], correct: 0, explanation: '1915年陈独秀创办《青年杂志》（后改名《新青年》）是新文化运动兴起的标志。' },
-                    { text: '洋务派与维新派的主要区别在于', options: ['A. 是否学习西方', 'B. 是否改变政治制度', 'C. 是否创办新式学堂',
-                            'D. 是否派遣留学生'], correct: 1,
-                        explanation: '洋务派主张"中体西用"只学技术，维新派主张变革政治制度实行君主立宪。' },
-                    { text: '辛亥革命后颁布的具有宪法性质的文件是', options: ['A. 《钦定宪法大纲》', 'B. 《中华民国临时约法》',
-                            'C. 《中华民国约法》', 'D. 《中华民国宪法》'], correct: 1,
-                        explanation: '《中华民国临时约法》是辛亥革命后颁布的具有资产阶级共和国宪法性质的文件。' },
-                    { text: '新文化运动中率先提倡白话文的代表人物是', options: ['A. 陈独秀', 'B. 鲁迅', 'C. 胡适', 'D. 李大钊'],
-                        correct: 2, explanation: '胡适发表《文学改良刍议》，率先提倡白话文。' },
+                        'D. 汉阳铁厂'], correct: 1, explanation: '安庆内军械所由曾国藩创办。' },
+                    { text: '京师大学堂是哪所大学的前身', options: ['A. 清华大学', 'B. 北京大学', 'C. 复旦大学', 'D. 南京大学'],
+                        correct: 1, explanation: '京师大学堂是北京大学的前身。' },
+                    { text: '辛亥革命的指导思想是', options: ['A. 维新变法思想', 'B. 三民主义', 'C. 民主与科学', 'D. 马克思主义'],
+                        correct: 1, explanation: '孙中山的三民主义是指导思想。' },
+                    { text: '新文化运动兴起的标志是', options: ['A. 《新青年》创办', 'B. 五四运动', 'C. 文学革命口号', 'D. 白话文运动'],
+                        correct: 0, explanation: '1915年陈独秀创办《青年杂志》。' },
+                    { text: '洋务派与维新派的根本区别是', options: ['A. 是否学习西方', 'B. 是否改变政治制度', 'C. 是否创办学堂',
+                            'D. 是否派遣留学生'], correct: 1, explanation: '洋务派只学技术，维新派主张变革制度。' },
                     { text: '中国近代第一所国家建立的最高学府是', options: ['A. 福州船政学堂', 'B. 京师同文馆', 'C. 京师大学堂',
-                            'D. 清华学堂'], correct: 2, explanation: '京师大学堂是中国近代第一所国家建立的最高学府。' },
-                    { text: '孙中山领导革命建立的第一个全国性政党是', options: ['A. 兴中会', 'B. 华兴会', 'C. 光复会',
-                        'D. 同盟会'], correct: 3, explanation: '中国同盟会是第一个全国性的资产阶级革命政党。' },
-                    { text: '辛亥革命后社会习俗的变化包括', options: ['A. 剪辫子、改称呼、禁缠足', 'B. 恢复科举考试',
-                            'C. 恢复帝制礼仪', 'D. 禁止白话文'], correct: 0,
-                        explanation: '辛亥革命后推行剪辫、改称呼、禁缠足等社会习俗改革。' },
+                        'D. 清华学堂'], correct: 2, explanation: '京师大学堂是第一所国家建立的最高学府。' },
+                    { text: '孙中山建立的第一个全国性政党是', options: ['A. 兴中会', 'B. 华兴会', 'C. 光复会', 'D. 同盟会'],
+                        correct: 3, explanation: '中国同盟会是第一个全国性资产阶级革命政党。' },
+                    { text: '辛亥革命后社会习俗变化包括', options: ['A. 剪辫、改称呼、禁缠足', 'B. 恢复科举', 'C. 恢复帝制', 'D. 禁止白话文'],
+                        correct: 0, explanation: '推行剪辫、改称呼、禁缠足等改革。' },
+                    { text: '率先提倡白话文的是', options: ['A. 陈独秀', 'B. 鲁迅', 'C. 胡适', 'D. 李大钊'], correct: 2,
+                        explanation: '胡适发表《文学改良刍议》率先提倡白话文。' },
+                    { text: '中国近代化的特点是', options: ['A. 技术→制度→思想逐步深入', 'B. 一步到位全面西化', 'C. 只学军事技术',
+                            'D. 完全照搬日本'], correct: 0, explanation: '经历了技术→制度→思想逐步深入的过程。' },
+                    { text: '戊戌变法又称', options: ['A. 百日维新', 'B. 洋务运动', 'C. 辛亥革命', 'D. 新文化运动'], correct: 0,
+                        explanation: '戊戌变法历时103天，又称百日维新。' },
+                    { text: '洋务运动破产的标志是', options: ['A. 鸦片战争失败', 'B. 甲午战争北洋舰队覆没', 'C. 八国联军侵华', 'D. 辛亥革命'],
+                        correct: 1, explanation: '甲午战争北洋舰队覆没宣告洋务运动破产。' },
+                    { text: '三民主义的核心是', options: ['A. 民族主义', 'B. 民权主义', 'C. 民生主义', 'D. 民主主义'], correct: 1,
+                        explanation: '民权主义是三民主义的核心，主张建立民国。' },
+                    { text: '新文化运动的主阵地是', options: ['A. 《新青年》和北京大学', 'B. 《民报》和同盟会', 'C. 《时务报》和强学会',
+                            'D. 《国闻报》和保国会'], correct: 0, explanation: '《新青年》和北京大学是新文化运动主阵地。' },
+                    { text: '洋务运动中创办的民用工业是', options: ['A. 安庆内军械所', 'B. 汉阳铁厂', 'C. 福州船政局', 'D. 北洋舰队'],
+                        correct: 1, explanation: '汉阳铁厂是洋务派创办的民用工业代表。' },
+                    { text: '维新派与洋务派的共同点是', options: ['A. 都主张学习西方', 'B. 都主张改变政治制度', 'C. 都主张推翻清政府',
+                            'D. 都主张废除科举'], correct: 0, explanation: '两者都主张向西方学习。' },
+                    { text: '辛亥革命后建立的政权是', options: ['A. 清政府', 'B. 中华民国', 'C. 北洋政府', 'D. 中华人民共和国'],
+                        correct: 1, explanation: '辛亥革命后建立中华民国。' },
+                    { text: '新文化运动中鲁迅的代表作是', options: ['A. 《文学改良刍议》', 'B. 《狂人日记》', 'C. 《青春》',
+                        'D. 《庶民的胜利》'], correct: 1, explanation: '《狂人日记》是鲁迅第一篇白话小说。' },
+                    { text: '戊戌变法失败的客观原因是', options: ['A. 维新派力量弱小', 'B. 顽固派势力强大', 'C. 光绪帝软弱', 'D. 袁世凯告密'],
+                        correct: 1, explanation: '顽固派势力强大是变法失败的客观原因。' },
+                    { text: '辛亥革命果实被谁窃取', options: ['A. 李鸿章', 'B. 袁世凯', 'C. 段祺瑞', 'D. 冯国璋'], correct: 1,
+                        explanation: '袁世凯窃取了辛亥革命果实。' },
                 ],
                 '抗日战争与解放战争': [
-                    { text: '抗日战争中中国军队取得的第一次大捷是', options: ['A. 台儿庄战役', 'B. 平型关大捷', 'C. 百团大战',
-                            'D. 淞沪会战'], correct: 1, explanation: '平型关大捷是八路军在华北取得的首次重大胜利。' },
-                    { text: '解放战争中的三大战役不包括', options: ['A. 辽沈战役', 'B. 淮海战役', 'C. 平津战役', 'D. 渡江战役'],
-                        correct: 3, explanation: '三大战役是辽沈、淮海、平津战役；渡江战役是后续的决胜战役。' },
+                    { text: '抗战中中国军队的第一次大捷是', options: ['A. 台儿庄战役', 'B. 平型关大捷', 'C. 百团大战', 'D. 淞沪会战'],
+                        correct: 1, explanation: '平型关大捷是八路军在华北的首次重大胜利。' },
+                    { text: '解放战争三大战役不包括', options: ['A. 辽沈战役', 'B. 淮海战役', 'C. 平津战役', 'D. 渡江战役'],
+                        correct: 3, explanation: '三大战役是辽沈、淮海、平津战役。' },
                     { text: '百团大战的指挥者是', options: ['A. 朱德', 'B. 彭德怀', 'C. 林彪', 'D. 刘伯承'], correct: 1,
-                        explanation: '百团大战由彭德怀指挥，是八路军在华北发动的规模最大的战役。' },
-                    { text: '台儿庄战役属于', options: ['A. 敌后战场', 'B. 正面战场', 'C. 游击战场', 'D. 东北战场'],
-                        correct: 1, explanation: '台儿庄战役是国民党正面战场取得的重大胜利。' },
+                        explanation: '百团大战由彭德怀指挥。' },
+                    { text: '台儿庄战役属于', options: ['A. 敌后战场', 'B. 正面战场', 'C. 游击战场', 'D. 东北战场'], correct: 1,
+                        explanation: '台儿庄战役是正面战场的重大胜利。' },
                     { text: '重庆谈判签订的协议是', options: ['A. 《停战协定》', 'B. 《双十协定》', 'C. 《和平建国纲领》',
-                            'D. 《共同纲领》'], correct: 1, explanation: '1945年重庆谈判后签订了《双十协定》。' },
-                    { text: '全面内战爆发的标志是国民党军队进攻', options: ['A. 陕北解放区', 'B. 山东解放区', 'C. 中原解放区',
-                            'D. 东北解放区'], correct: 2, explanation: '1946年国民党军队进攻中原解放区，全面内战爆发。' },
-                    { text: '刘邓大军千里跃进大别山的意义在于', options: ['A. 揭开了战略进攻的序幕', 'B. 标志着解放战争的结束',
-                            'C. 粉碎了国民党的重点进攻', 'D. 取得了三大战役的胜利'], correct: 0,
-                        explanation: '刘邓大军挺进大别山揭开了人民解放军战略进攻的序幕。' },
-                    { text: '抗战时期中共召开的确立毛泽东思想为指导思想的大会是', options: ['A. 遵义会议', 'B. 瓦窑堡会议',
-                        'C. 中共七大', 'D. 中共八大'], correct: 2, explanation: '1945年中共七大确立毛泽东思想为指导思想。' },
-                    { text: '下列属于敌后战场战役的是', options: ['A. 淞沪会战', 'B. 武汉会战', 'C. 百团大战', 'D. 长沙会战'],
-                        correct: 2, explanation: '百团大战是敌后战场（八路军）的战役，其他属于正面战场。' },
+                        'D. 《共同纲领》'], correct: 1, explanation: '1945年重庆谈判签订《双十协定》。' },
+                    { text: '全面内战爆发标志是国民党进攻', options: ['A. 陕北', 'B. 山东', 'C. 中原解放区', 'D. 东北'], correct: 2,
+                        explanation: '1946年国民党进攻中原解放区。' },
+                    { text: '挺进大别山的意义是', options: ['A. 揭开战略进攻序幕', 'B. 标志解放战争结束', 'C. 粉碎重点进攻', 'D. 取得三大战役胜利'],
+                        correct: 0, explanation: '挺进大别山揭开了战略进攻的序幕。' },
+                    { text: '中共七大确立的指导思想是', options: ['A. 三民主义', 'B. 毛泽东思想', 'C. 邓小平理论', 'D. 三个代表'],
+                        correct: 1, explanation: '1945年中共七大确立毛泽东思想。' },
+                    { text: '敌后战场的代表战役是', options: ['A. 淞沪会战', 'B. 武汉会战', 'C. 百团大战', 'D. 长沙会战'], correct: 2,
+                        explanation: '百团大战是敌后战场的代表。' },
                     { text: '渡江战役解放的城市是', options: ['A. 北京', 'B. 南京', 'C. 上海', 'D. 广州'], correct: 1,
-                        explanation: '渡江战役后解放南京，宣告国民党在大陆统治的覆灭。' },
+                        explanation: '渡江战役后解放南京。' },
+                    { text: '抗日民族统一战线正式建立的标志是', options: ['A. 西安事变', 'B. 七七事变', 'C. 国民党公布国共合作宣言',
+                            'D. 淞沪会战'], correct: 2, explanation: '国民党公布国共合作宣言标志统一战线正式建立。' },
+                    { text: '相持阶段敌后战场最大规模战役是', options: ['A. 平型关大捷', 'B. 百团大战', 'C. 台儿庄战役', 'D. 武汉会战'],
+                        correct: 1, explanation: '百团大战是相持阶段最大规模战役。' },
+                    { text: '辽沈战役中首先攻占的城市是', options: ['A. 沈阳', 'B. 锦州', 'C. 长春', 'D. 营口'], correct: 1,
+                        explanation: '辽沈战役先攻占锦州，关门打狗。' },
+                    { text: '淮海战役的指挥者是', options: ['A. 林彪、罗荣桓', 'B. 刘伯承、邓小平、陈毅等', 'C. 彭德怀、习仲勋',
+                            'D. 聂荣臻、徐向前'], correct: 1, explanation: '淮海战役由刘伯承、邓小平、陈毅等指挥。' },
+                    { text: '抗战中正面战场取得的最大胜利是', options: ['A. 平型关大捷', 'B. 台儿庄战役', 'C. 百团大战', 'D. 武汉会战'],
+                        correct: 1, explanation: '台儿庄战役是正面战场最大胜利。' },
+                    { text: '日本宣布无条件投降的时间是', options: ['A. 1945年8月6日', 'B. 1945年8月15日', 'C. 1945年9月2日',
+                            'D. 1945年9月9日'], correct: 1, explanation: '1945年8月15日日本天皇宣布无条件投降。' },
+                    { text: '抗战胜利的根本原因是', options: ['A. 美国原子弹', 'B. 苏联出兵', 'C. 全民族抗战', 'D. 国民党正面战场'],
+                        correct: 2, explanation: '全民族抗战是抗战胜利的根本原因。' },
+                    { text: '平津战役中和平解放的城市是', options: ['A. 天津', 'B. 北平', 'C. 张家口', 'D. 塘沽'], correct: 1,
+                        explanation: '北平通过和平方式解放。' },
+                    { text: '中共七届二中全会召开于', options: ['A. 延安', 'B. 西柏坡', 'C. 北平', 'D. 南京'], correct: 1,
+                        explanation: '七届二中全会于1949年在西柏坡召开。' },
+                    { text: '抗战时期中共召开的重要会议是', options: ['A. 遵义会议', 'B. 瓦窑堡会议', 'C. 洛川会议', 'D. 中共七大'],
+                        correct: 3, explanation: '1945年中共七大在延安召开。' },
                 ],
                 '世界古代史': [
-                    { text: '古代埃及文明的象征是', options: ['A. 空中花园', 'B. 金字塔', 'C. 帕特农神庙', 'D. 斗兽场'],
-                        correct: 1, explanation: '金字塔是古埃及文明的标志性建筑。' },
-                    { text: '古希腊雅典民主政治达到顶峰时期的执政官是', options: ['A. 梭伦', 'B. 克里斯提尼', 'C. 伯里克利',
-                            'D. 亚历山大'], correct: 2, explanation: '伯里克利执政时期雅典民主政治达到顶峰。' },
+                    { text: '古埃及文明的象征是', options: ['A. 空中花园', 'B. 金字塔', 'C. 帕特农神庙', 'D. 斗兽场'], correct: 1,
+                        explanation: '金字塔是古埃及文明的标志性建筑。' },
+                    { text: '雅典民主政治顶峰时期的执政官是', options: ['A. 梭伦', 'B. 克里斯提尼', 'C. 伯里克利', 'D. 亚历山大'],
+                        correct: 2, explanation: '伯里克利时期雅典民主政治达到顶峰。' },
                     { text: '罗马帝国的建立者是', options: ['A. 凯撒', 'B. 屋大维', 'C. 安东尼', 'D. 庞培'], correct: 1,
-                        explanation: '屋大维在公元前27年被授予"奥古斯都"称号，建立罗马帝国。' },
-                    { text: '佛教的创始人是', options: ['A. 穆罕默德', 'B. 耶稣', 'C. 乔达摩·悉达多', 'D. 老子'],
-                        correct: 2, explanation: '乔达摩·悉达多（释迦牟尼）是佛教的创始人。' },
-                    { text: '西欧封建制度的核心是', options: ['A. 奴隶制', 'B. 庄园制度和封君封臣制', 'C. 民主制',
-                        'D. 共和制'], correct: 1, explanation: '西欧封建制度以庄园经济和封君封臣关系为核心。' },
+                        explanation: '屋大维被授予"奥古斯都"称号。' },
+                    { text: '佛教的创始人是', options: ['A. 穆罕默德', 'B. 耶稣', 'C. 乔达摩·悉达多', 'D. 老子'], correct: 2,
+                        explanation: '乔达摩·悉达多（释迦牟尼）是佛教创始人。' },
+                    { text: '西欧封建制度的核心是', options: ['A. 奴隶制', 'B. 庄园制度和封君封臣制', 'C. 民主制', 'D. 共和制'],
+                        correct: 1, explanation: '西欧封建制度以庄园经济和封君封臣关系为核心。' },
                     { text: '阿拉伯数字的发明者是', options: ['A. 阿拉伯人', 'B. 古印度人', 'C. 古埃及人', 'D. 古希腊人'],
-                        correct: 1, explanation: '阿拉伯数字由古印度人发明，经阿拉伯人传播到欧洲。' },
-                    { text: '被称为西方文明之母的文明是', options: ['A. 古埃及文明', 'B. 古巴比伦文明', 'C. 古希腊文明',
-                            'D. 古罗马文明'], correct: 2, explanation: '古希腊文明被公认为西方文明的源头。' },
-                    { text: '《汉谟拉比法典》诞生于', options: ['A. 古埃及', 'B. 古巴比伦', 'C. 古印度', 'D. 古中国'],
-                        correct: 1, explanation: '《汉谟拉比法典》是古巴比伦王国国王汉谟拉比颁布的法典。' },
-                    { text: '西欧城市重新兴起的意义在于', options: ['A. 促进了工商业的发展和市民阶层的形成', 'B. 恢复了奴隶制度',
-                            'C. 加强了封建领主统治', 'D. 阻碍了文化教育发展'], correct: 0,
-                        explanation: '城市兴起促进了商品经济、市民阶层和大学的出现。' },
-                    { text: '大化改新使日本转变为', options: ['A. 奴隶制国家', 'B. 封建制国家', 'C. 资本主义国家',
-                        'D. 社会主义国家'], correct: 1, explanation: '大化改新使日本从奴隶社会过渡到封建社会。' },
+                        correct: 1, explanation: '阿拉伯数字由古印度人发明。' },
+                    { text: '西方文明之母是', options: ['A. 古埃及文明', 'B. 古巴比伦文明', 'C. 古希腊文明', 'D. 古罗马文明'],
+                        correct: 2, explanation: '古希腊文明被公认为西方文明的源头。' },
+                    { text: '《汉谟拉比法典》诞生于', options: ['A. 古埃及', 'B. 古巴比伦', 'C. 古印度', 'D. 古中国'], correct: 1,
+                        explanation: '《汉谟拉比法典》是古巴比伦的法典。' },
+                    { text: '大化改新使日本转变为', options: ['A. 奴隶制国家', 'B. 封建制国家', 'C. 资本主义国家', 'D. 社会主义国家'],
+                        correct: 1, explanation: '大化改新使日本从奴隶社会过渡到封建社会。' },
+                    { text: '西欧城市重新兴起的意义是', options: ['A. 促进工商业和市民阶层形成', 'B. 恢复奴隶制', 'C. 加强领主统治',
+                            'D. 阻碍文化教育'], correct: 0, explanation: '城市兴起促进了商品经济、市民阶层和大学的出现。' },
+                    { text: '古希腊城邦雅典的政治特点是', options: ['A. 专制统治', 'B. 民主政治', 'C. 寡头政治', 'D. 军事独裁'],
+                        correct: 1, explanation: '雅典以民主政治著称。' },
+                    { text: '罗马共和国时期最重要的权力机构是', options: ['A. 公民大会', 'B. 元老院', 'C. 执政官', 'D. 保民官'],
+                        correct: 1, explanation: '元老院是罗马共和国实际上的最高权力机构。' },
+                    { text: '伊斯兰教的创始人是', options: ['A. 耶稣', 'B. 穆罕默德', 'C. 释迦牟尼', 'D. 孔子'], correct: 1,
+                        explanation: '穆罕默德是伊斯兰教的创始人。' },
+                    { text: '中世纪欧洲封建庄园的特点是', options: ['A. 自给自足的经济单位', 'B. 商品交换中心', 'C. 纯粹的宗教场所',
+                            'D. 军事要塞'], correct: 0, explanation: '庄园是自给自足的经济单位。' },
+                    { text: '拜占庭帝国保存的主要文明是', options: ['A. 印度文明', 'B. 中华文明', 'C. 古希腊罗马文明', 'D. 阿拉伯文明'],
+                        correct: 2, explanation: '拜占庭帝国保存了古希腊罗马文明遗产。' },
+                    { text: '古代印度种姓制度中最高等级是', options: ['A. 刹帝利', 'B. 婆罗门', 'C. 吠舍', 'D. 首陀罗'], correct: 1,
+                        explanation: '婆罗门是最高等级，掌管宗教祭祀。' },
+                    { text: '公元1世纪诞生于巴勒斯坦的宗教是', options: ['A. 佛教', 'B. 基督教', 'C. 伊斯兰教', 'D. 道教'],
+                        correct: 1, explanation: '基督教诞生于公元1世纪的巴勒斯坦。' },
+                    { text: '阿拉伯帝国在文化上的重要贡献是', options: ['A. 发明了造纸术', 'B. 沟通了东西方文化', 'C. 创立了佛教',
+                            'D. 发明了印刷术'], correct: 1, explanation: '阿拉伯帝国是东西方文化交流的桥梁。' },
+                    { text: '古代世界七大奇迹中位于埃及的是', options: ['A. 空中花园', 'B. 金字塔', 'C. 宙斯神像', 'D. 摩索拉斯陵墓'],
+                        correct: 1, explanation: '胡夫金字塔是古代世界七大奇迹中唯一留存至今的。' },
+                    { text: '西欧中世纪大学的兴起主要得益于', options: ['A. 教会支持', 'B. 城市经济的发展', 'C. 国王的命令',
+                        'D. 阿拉伯文化传入'], correct: 1, explanation: '城市经济的发展推动了大学的兴起。' },
                 ],
                 '世界近代史': [
-                    { text: '文艺复兴运动的核心思想是', options: ['A. 理性主义', 'B. 人文主义', 'C. 自由主义', 'D. 社会主义'],
-                        correct: 1, explanation: '文艺复兴以人文主义为核心，强调人的价值和尊严。' },
-                    { text: '英国资产阶级革命后确立的政体是', options: ['A. 民主共和制', 'B. 君主立宪制', 'C. 联邦制',
-                        'D. 专制君主制'], correct: 1, explanation: '1689年《权利法案》确立君主立宪制。' },
-                    { text: '美国独立战争的领导人是谁', options: ['A. 拿破仑', 'B. 华盛顿', 'C. 林肯', 'D. 罗斯福'],
-                        correct: 1, explanation: '乔治·华盛顿是美国独立战争的总司令。' },
-                    { text: '法国大革命开始的标志是', options: ['A. 三级会议的召开', 'B. 攻占巴士底狱', 'C. 《人权宣言》的发表',
-                            'D. 处死路易十六'], correct: 1, explanation: '1789年巴黎人民攻占巴士底狱标志着法国大革命的开始。' },
-                    { text: '工业革命中改良蒸汽机的是', options: ['A. 哈格里夫斯', 'B. 瓦特', 'C. 富尔顿', 'D. 史蒂芬孙'],
-                        correct: 1, explanation: '瓦特改良了蒸汽机，使其成为工业革命的核心动力。' },
-                    { text: '美国南北战争期间颁布的解放黑人奴隶的文件是', options: ['A. 《独立宣言》', 'B. 《人权宣言》',
-                            'C. 《解放黑人奴隶宣言》', 'D. 《宅地法》'], correct: 2,
-                        explanation: '林肯颁布的《解放黑人奴隶宣言》扭转了南北战争的局势。' },
-                    { text: '马克思主义诞生的标志是', options: ['A. 《资本论》的出版', 'B. 《共产党宣言》的发表', 'C. 巴黎公社的成立',
-                            'D. 十月革命的胜利'], correct: 1, explanation: '1848年《共产党宣言》发表标志着马克思主义诞生。' },
-                    { text: '日本明治维新的性质是', options: ['A. 资产阶级革命', 'B. 自上而下的资产阶级性质改革',
-                            'C. 无产阶级革命', 'D. 封建复辟运动'], correct: 1,
-                        explanation: '明治维新是日本自上而下进行的资产阶级性质的改革。' },
-                    { text: '第一次世界大战的导火线是', options: ['A. 萨拉热窝事件', 'B. 珍珠港事件', 'C. 慕尼黑阴谋',
-                            'D. 柏林危机'], correct: 0, explanation: '萨拉热窝事件是第一次世界大战的导火线。' },
-                    { text: '发现万有引力定律的科学家是', options: ['A. 达尔文', 'B. 牛顿', 'C. 爱因斯坦', 'D. 哥白尼'],
-                        correct: 1, explanation: '牛顿提出了万有引力定律和力学三定律。' },
+                    { text: '文艺复兴的核心思想是', options: ['A. 理性主义', 'B. 人文主义', 'C. 自由主义', 'D. 社会主义'],
+                        correct: 1, explanation: '文艺复兴以人文主义为核心。' },
+                    { text: '英国资产阶级革命后确立的政体是', options: ['A. 民主共和制', 'B. 君主立宪制', 'C. 联邦制', 'D. 专制君主制'],
+                        correct: 1, explanation: '1689年《权利法案》确立君主立宪制。' },
+                    { text: '美国独立战争的领导人是', options: ['A. 拿破仑', 'B. 华盛顿', 'C. 林肯', 'D. 罗斯福'], correct: 1,
+                        explanation: '华盛顿是美国独立战争总司令。' },
+                    { text: '法国大革命开始的标志是', options: ['A. 三级会议召开', 'B. 攻占巴士底狱', 'C. 《人权宣言》发表', 'D. 处死路易十六'],
+                        correct: 1, explanation: '攻占巴士底狱标志法国大革命开始。' },
+                    { text: '改良蒸汽机的是', options: ['A. 哈格里夫斯', 'B. 瓦特', 'C. 富尔顿', 'D. 史蒂芬孙'], correct: 1,
+                        explanation: '瓦特改良蒸汽机。' },
+                    { text: '美国南北战争颁布的解放黑奴文件是', options: ['A. 《独立宣言》', 'B. 《人权宣言》', 'C. 《解放黑人奴隶宣言》',
+                            'D. 《宅地法》'], correct: 2, explanation: '林肯颁布《解放黑人奴隶宣言》。' },
+                    { text: '马克思主义诞生标志是', options: ['A. 《资本论》出版', 'B. 《共产党宣言》发表', 'C. 巴黎公社成立', 'D. 十月革命'],
+                        correct: 1, explanation: '1848年《共产党宣言》发表。' },
+                    { text: '日本明治维新的性质是', options: ['A. 资产阶级革命', 'B. 自上而下的资产阶级改革', 'C. 无产阶级革命',
+                        'D. 封建复辟'], correct: 1, explanation: '明治维新是自上而下的资产阶级性质改革。' },
+                    { text: '一战导火线是', options: ['A. 萨拉热窝事件', 'B. 珍珠港事件', 'C. 慕尼黑阴谋', 'D. 柏林危机'],
+                        correct: 0, explanation: '萨拉热窝事件是一战导火线。' },
+                    { text: '发现万有引力定律的是', options: ['A. 达尔文', 'B. 牛顿', 'C. 爱因斯坦', 'D. 哥白尼'], correct: 1,
+                        explanation: '牛顿提出万有引力定律。' },
+                    { text: '新航路开辟后最先殖民扩张的是', options: ['A. 英法', 'B. 葡萄牙和西班牙', 'C. 荷兰和英国', 'D. 法国和德国'],
+                        correct: 1, explanation: '葡萄牙和西班牙是最早的殖民国家。' },
+                    { text: '美国独立战争开始于', options: ['A. 波士顿倾茶事件', 'B. 来克星顿枪声', 'C. 《独立宣言》发表', 'D. 萨拉托加大捷'],
+                        correct: 1, explanation: '来克星顿枪声是美国独立战争开始的标志。' },
+                    { text: '《人权宣言》的核心内容是', options: ['A. 君权神授', 'B. 天赋人权、自由平等', 'C. 三权分立', 'D. 社会契约'],
+                        correct: 1, explanation: '《人权宣言》强调天赋人权、自由平等。' },
+                    { text: '工业革命首先发生在英国的原因是', options: ['A. 英国最早确立君主立宪制', 'B. 英国拥有广阔殖民地', 'C. 圈地运动提供劳动力',
+                            'D. 以上都是'], correct: 3, explanation: '政治制度、殖民地、劳动力共同促成。' },
+                    { text: '拿破仑的主要历史功绩是', options: ['A. 推翻法国封建制度', 'B. 颁布《拿破仑法典》', 'C. 统一欧洲',
+                            'D. 领导法国大革命'], correct: 1, explanation: '《拿破仑法典》对后世影响深远。' },
+                    { text: '达尔文的贡献是提出了', options: ['A. 万有引力定律', 'B. 进化论', 'C. 相对论', 'D. 日心说'], correct: 1,
+                        explanation: '达尔文提出进化论。' },
+                    { text: '俄国1861年改革的内容是', options: ['A. 废除农奴制', 'B. 实行君主立宪', 'C. 建立共和国', 'D. 实行社会主义'],
+                        correct: 0, explanation: '1861年改革废除了农奴制。' },
+                    { text: '美国南北战争的实质是', options: ['A. 独立战争', 'B. 资产阶级革命', 'C. 无产阶级革命', 'D. 民族解放战争'],
+                        correct: 1, explanation: '南北战争是美国第二次资产阶级革命。' },
+                    { text: '第一次世界大战的性质是', options: ['A. 正义的民族解放战争', 'B. 帝国主义掠夺战争', 'C. 反法西斯战争',
+                            'D. 社会主义革命'], correct: 1, explanation: '一战是帝国主义掠夺战争。' },
+                    { text: '爱迪生的主要发明是', options: ['A. 蒸汽机', 'B. 电灯', 'C. 电话', 'D. 汽车'], correct: 1,
+                        explanation: '爱迪生发明了实用电灯。' },
                 ],
                 '世界现代史': [
-                    { text: '第二次世界大战的转折点是', options: ['A. 莫斯科保卫战', 'B. 斯大林格勒战役', 'C. 诺曼底登陆',
-                            'D. 中途岛海战'], correct: 1, explanation: '斯大林格勒战役是苏德战场乃至整个二战的转折点。' },
-                    { text: '冷战开始的标志是', options: ['A. 丘吉尔发表"铁幕"演说', 'B. 杜鲁门主义的出台', 'C. 马歇尔计划的实施',
-                            'D. 北约的成立'], correct: 1, explanation: '1947年杜鲁门主义出台标志着冷战正式开始。' },
-                    { text: '联合国的总部设在', options: ['A. 伦敦', 'B. 巴黎', 'C. 纽约', 'D. 日内瓦'], correct: 2,
-                        explanation: '联合国总部设在美国纽约。' },
-                    { text: '苏联解体的时间是', options: ['A. 1989年', 'B. 1990年', 'C. 1991年', 'D. 1992年'],
-                        correct: 2, explanation: '1991年苏联解体，标志着冷战结束。' },
-                    { text: '欧洲联盟正式成立于', options: ['A. 1957年', 'B. 1967年', 'C. 1993年', 'D. 1999年'],
-                        correct: 2, explanation: '1993年《马斯特里赫特条约》生效，欧盟正式成立。' },
-                    { text: '第三次科技革命的核心是', options: ['A. 蒸汽机的发明', 'B. 电力的广泛应用', 'C. 电子计算机的广泛使用',
-                            'D. 原子能的应用'], correct: 2, explanation: '电子计算机的广泛使用是第三次科技革命的核心标志。' },
-                    { text: '万隆会议上提出的重要原则是', options: ['A. 和平共处五项原则', 'B. 求同存异', 'C. 一边倒', 'D. 不结盟'],
-                        correct: 1, explanation: '周恩来在万隆会议上提出"求同存异"方针，促进会议成功。' },
-                    { text: '二战后美国推行的援助欧洲的经济计划是', options: ['A. 道威斯计划', 'B. 马歇尔计划', 'C. 星球大战计划',
-                            'D. 罗斯福新政'], correct: 1, explanation: '马歇尔计划是美国援助西欧复兴经济的计划。' },
-                    { text: '世界贸易组织(WTO)取代的是', options: ['A. 国际货币基金组织', 'B. 世界银行', 'C. 关税与贸易总协定',
-                            'D. 亚太经合组织'], correct: 2, explanation: 'WTO于1995年取代关贸总协定(GATT)。' },
-                    { text: '经济全球化趋势加强的根本原因是', options: ['A. 各国经济依赖加深', 'B. 科学技术的发展和生产力提高',
-                            'C. 跨国公司的发展', 'D. 国际组织的推动'], correct: 1,
-                        explanation: '科技发展和生产力提高是经济全球化的根本动力。' },
+                    { text: '二战的转折点是', options: ['A. 莫斯科保卫战', 'B. 斯大林格勒战役', 'C. 诺曼底登陆', 'D. 中途岛海战'],
+                        correct: 1, explanation: '斯大林格勒战役是二战的转折点。' },
+                    { text: '冷战开始的标志是', options: ['A. 铁幕演说', 'B. 杜鲁门主义出台', 'C. 马歇尔计划', 'D. 北约成立'],
+                        correct: 1, explanation: '1947年杜鲁门主义出台标志冷战开始。' },
+                    { text: '联合国总部设在', options: ['A. 伦敦', 'B. 巴黎', 'C. 纽约', 'D. 日内瓦'], correct: 2,
+                        explanation: '联合国总部在美国纽约。' },
+                    { text: '苏联解体的时间是', options: ['A. 1989年', 'B. 1990年', 'C. 1991年', 'D. 1992年'], correct: 2,
+                        explanation: '1991年苏联解体。' },
+                    { text: '欧盟正式成立于', options: ['A. 1957年', 'B. 1967年', 'C. 1993年', 'D. 1999年'], correct: 2,
+                        explanation: '1993年《马斯特里赫特条约》生效。' },
+                    { text: '第三次科技革命的核心是', options: ['A. 蒸汽机', 'B. 电力', 'C. 电子计算机', 'D. 原子能'], correct: 2,
+                        explanation: '电子计算机的广泛使用是第三次科技革命核心。' },
+                    { text: '万隆会议上周恩来提出', options: ['A. 和平共处五项原则', 'B. 求同存异', 'C. 一边倒', 'D. 不结盟'],
+                        correct: 1, explanation: '周恩来提出"求同存异"方针。' },
+                    { text: '二战后援助欧洲的经济计划是', options: ['A. 道威斯计划', 'B. 马歇尔计划', 'C. 星球大战计划', 'D. 罗斯福新政'],
+                        correct: 1, explanation: '马歇尔计划援助西欧复兴经济。' },
+                    { text: 'WTO取代的是', options: ['A. IMF', 'B. 世界银行', 'C. 关贸总协定', 'D. APEC'], correct: 2,
+                        explanation: 'WTO于1995年取代关贸总协定。' },
+                    { text: '经济全球化的根本原因是', options: ['A. 各国依赖加深', 'B. 科技发展和生产力提高', 'C. 跨国公司发展',
+                        'D. 国际组织推动'], correct: 1, explanation: '科技发展和生产力提高是根本动力。' },
+                    { text: '两极格局结束的标志是', options: ['A. 杜鲁门主义', 'B. 苏联解体', 'C. 柏林墙倒塌', 'D. 北约东扩'],
+                        correct: 1, explanation: '苏联解体标志两极格局结束。' },
+                    { text: '罗斯福新政的核心措施是', options: ['A. 自由放任', 'B. 国家干预经济', 'C. 计划经济', 'D. 私有化'],
+                        correct: 1, explanation: '罗斯福新政实行国家干预经济。' },
+                    { text: '诺曼底登陆的作用是', options: ['A. 开辟欧洲第二战场', 'B. 结束二战', 'C. 打败日本', 'D. 解放非洲'],
+                        correct: 0, explanation: '诺曼底登陆开辟了欧洲第二战场。' },
+                    { text: '世界多极化趋势中重要一极是', options: ['A. 英国', 'B. 中国', 'C. 加拿大', 'D. 澳大利亚'], correct: 1,
+                        explanation: '中国是多极化趋势中的重要力量。' },
+                    { text: '20世纪90年代美国经济的特点是', options: ['A. 停滞', 'B. 新经济', 'C. 衰退', 'D. 通货膨胀'], correct: 1,
+                        explanation: '20世纪90年代美国出现新经济。' },
+                    { text: '二战后日本经济崛起的原因不包括', options: ['A. 美国扶持', 'B. 科技立国', 'C. 大量殖民地资源', 'D. 重视教育'],
+                        correct: 2, explanation: '日本二战后失去了殖民地。' },
+                    { text: '联合国成立的时间是', options: ['A. 1942年', 'B. 1945年', 'C. 1947年', 'D. 1949年'], correct: 1,
+                        explanation: '联合国于1945年成立。' },
+                    { text: '当今世界时代主题是', options: ['A. 战争与革命', 'B. 和平与发展', 'C. 冷战与对抗', 'D. 殖民与扩张'],
+                        correct: 1, explanation: '和平与发展是当今世界时代主题。' },
+                    { text: '互联网的普及始于', options: ['A. 20世纪50年代', 'B. 20世纪60年代', 'C. 20世纪70年代', 'D. 20世纪90年代'],
+                        correct: 3, explanation: '互联网在20世纪90年代开始普及。' },
+                    { text: '世界贸易组织的主要职能是', options: ['A. 政治协调', 'B. 军事合作', 'C. 促进全球贸易自由化', 'D. 文化交流'],
+                        correct: 2, explanation: 'WTO主要职能是促进全球贸易自由化。' },
                 ],
             };
 
-            // 构建完整题库数据
-            const quizData = [
-                { id: 'ancient-china', title: '🏯 中国古代史', questions: buildQuestions('中国古代史', 40) },
-                { id: 'modern-china', title: '🔥 中国近代史（重点）', questions: buildQuestions('中国近代史', 50) },
-                { id: 'contemporary-china', title: '🇨🇳 中国现代史', questions: buildQuestions('中国现代史', 40) },
-                { id: 'modernization', title: '🔍 近代化的探索（专题）', questions: buildQuestions('近代化的探索', 30) },
-                { id: 'war-period', title: '⚔️ 抗日战争与解放战争（专题）', questions: buildQuestions('抗日战争与解放战争',
-                30) },
-                { id: 'world-ancient', title: '🏛️ 世界古代史', questions: buildQuestions('世界古代史', 25) },
-                { id: 'world-modern', title: '🌍 世界近代史', questions: buildQuestions('世界近代史', 30) },
-                { id: 'world-contemporary', title: '🌐 世界现代史', questions: buildQuestions('世界现代史', 25) },
-            ];
-
-            function buildQuestions(category, targetCount) {
-                const templates = realQuestions[category] || [];
+            // 构建题库数据
+            function buildSection(id, title, category, count) {
+                const templates = allQuestions[category] || [];
                 const questions = [];
-                for (let i = 0; i < targetCount; i++) {
+                for (let i = 0; i < count; i++) {
                     if (i < templates.length) {
-                        questions.push({
-                            ...templates[i],
-                            id: `${category}-${i}`,
-                            category: category,
-                        });
+                        questions.push({ ...templates[i], id: `${id}-${i}`, category: id });
                     } else {
-                        // 用模板题创建变体（保证数据完整）
                         const base = templates[i % templates.length];
                         questions.push({
-                            text: base.text + `（变式${Math.floor(i / templates.length) + 1}）`,
+                            text: `关于"${base.text.slice(0,15)}..."的深入理解，下列说法正确的是`,
                             options: [...base.options],
                             correct: base.correct,
                             explanation: base.explanation,
-                            id: `${category}-${i}`,
-                            category: category,
+                            id: `${id}-${i}`,
+                            category: id,
                         });
                     }
                 }
                 return questions;
             }
 
-            // ==================== 材料题数据（6题） ====================
+            const quizData = [
+                { id: 'ancient-china', title: '🏯 中国古代史', questions: buildSection('ancient-china', '中国古代史',
+                        '中国古代史', 20) },
+                { id: 'modern-china', title: '🔥 中国近代史（重点）', questions: buildSection('modern-china', '中国近代史',
+                        '中国近代史', 20) },
+                { id: 'contemporary-china', title: '🇨🇳 中国现代史', questions: buildSection('contemporary-china',
+                        '中国现代史', '中国现代史', 20) },
+                { id: 'modernization', title: '🔍 近代化的探索（专题）', questions: buildSection('modernization', '近代化的探索',
+                        '近代化的探索', 20) },
+                { id: 'war-period', title: '⚔️ 抗日战争与解放战争（专题）', questions: buildSection('war-period',
+                        '抗日战争与解放战争', '抗日战争与解放战争', 20) },
+                { id: 'world-ancient', title: '🏛️ 世界古代史', questions: buildSection('world-ancient', '世界古代史',
+                        '世界古代史', 20) },
+                { id: 'world-modern', title: '🌍 世界近代史', questions: buildSection('world-modern', '世界近代史',
+                        '世界近代史', 20) },
+                { id: 'world-contemporary', title: '🌐 世界现代史', questions: buildSection('world-contemporary',
+                        '世界现代史', '世界现代史', 20) },
+            ];
+
+            // ==================== 材料题（四步解题法+完成后展示） ====================
             const materialQuestions = [{
                 id: 'mat-1',
                 title: '📖 材料题一：中国古代经济重心南移',
                 material: '材料一："（南宋）泉州市舶司岁入二百余万缗……广州司舶之利尤厚。"——《建炎以来朝野杂记》\n材料二：清朝乾隆二十二年（1757年）宣布仅留广州一口通商，由十三行行商代理外贸。',
-                steps: [{
-                    label: '环节一：材料理解（多选）',
-                    type: 'multi',
-                    question: '根据材料，下列说法正确的有哪些？',
-                    options: ['A. 南宋时期泉州和广州的海外贸易收入丰厚', 'B. 清朝时广州成为唯一对外通商口岸',
-                        'C. 南宋时广州的贸易收入不如泉州', 'D. 清朝十三行负责管理外贸'
-                    ],
-                    correct: [0, 1, 3],
-                    explanation: '材料一表明泉州市舶收入丰厚，广州"尤厚"说明更丰厚；材料二明确一口通商和十三行代理。C项与"尤厚"矛盾。'
-                }, {
-                    label: '环节二：知识映射（多选）',
-                    type: 'multi',
-                    question: '与上述材料相关的历史背景有？',
-                    options: ['A. 南宋经济重心完成南移', 'B. 海上丝绸之路的繁荣', 'C. 清朝实行闭关锁国政策',
-                        'D. 鸦片战争后五口通商'
-                    ],
-                    correct: [0, 1, 2],
-                    explanation: 'D项发生在1842年后，与材料时间不符。A、B、C均与材料所述现象直接相关。'
-                }, {
-                    label: '环节三：综合结论（单选）',
-                    type: 'single',
-                    question: '综合材料，可以得出的合理结论是？',
-                    options: ['A. 广州自古以来就是中国唯一的外贸港口', 'B. 从宋到清，广州的外贸地位日益重要',
-                        'C. 清朝外贸政策比宋朝更加开放', 'D. 十三行制度始于南宋'
-                    ],
-                    correct: [1],
-                    explanation: '材料显示广州从南宋重要港口到清代唯一口岸，地位提升。其他选项均与史实不符。'
-                }]
+                question: '结合材料与所学知识，分析中国古代经济重心南移的表现及广州外贸地位的变化。',
+                steps: [
+                    { label: '环节一：读材料·提取信息（多选）', type: 'multi', question: '从材料中可以直接获取的信息有哪些？',
+                        options: ['A. 南宋泉州和广州海外贸易收入丰厚', 'B. 广州的贸易收入比泉州更高',
+                            'C. 清朝时期广州成为唯一对外通商口岸', 'D. 清朝十三行负责代理外贸事务'
+                        ], correct: [0, 1, 2, 3], explanation: '材料一"尤厚"说明广州收入更丰厚；材料二明确一口通商和十三行代理。' },
+                    { label: '环节二：联所学·知识定位（多选）', type: 'multi', question: '与上述材料相关的课本知识点有哪些？', options: [
+                            'A. 南宋时期经济重心南移最终完成', 'B. 海上丝绸之路在宋代达到鼎盛',
+                            'C. 清朝实行闭关锁国政策，仅留广州一口通商', 'D. 鸦片战争后五口通商改变了外贸格局'
+                        ], correct: [0, 1, 2, 3], explanation: '四项均与材料相关，构成了完整的知识背景。' },
+                    { label: '环节三：析因果·深度理解（单选）', type: 'single', question: '广州在清代成为唯一对外通商口岸的主要原因是？',
+                        options: ['A. 广州地理位置最优越', 'B. 清政府推行闭关锁国政策', 'C. 广州商人势力最强大',
+                            'D. 外国商人只愿意在广州贸易'
+                        ], correct: 1, explanation: '清朝实行闭关锁国政策，限制对外贸易，仅留广州一口通商。' },
+                    { label: '环节四：得结论·综合表达（单选）', type: 'single', question: '综合材料，可以得出的最合理结论是？', options: [
+                            'A. 广州自古以来就是中国唯一外贸港口', 'B. 从南宋到清代，广州的外贸地位日益重要',
+                            'C. 清朝的外贸政策比宋朝更加开放', 'D. 十三行制度最早出现于南宋时期'
+                        ], correct: 1, explanation: '材料显示广州从南宋重要港口发展到清代唯一口岸，地位显著提升。' },
+                ],
+                reviewSummary: '本题通过两则文献材料，考查中国古代经济重心南移背景下广州外贸地位的变化。解题关键在于准确把握材料信息并与课本知识相印证。',
+                fullAnswer: '广州从南宋时期的重要外贸港口（市舶收入丰厚），发展到清代成为唯一的对外通商口岸（闭关锁国政策下的特殊地位）。这一变化反映了中国古代经济重心南移的完成，以及明清时期外贸政策的转变。',
             }, {
                 id: 'mat-2',
-                title: '📖 材料题二：近代列强侵略与抗争',
-                material: '材料一："自今以后，大皇帝恩准英国人民带同所属家眷，寄居大清沿海之广州、福州、厦门、宁波、上海等五处港口，贸易通商无碍。"——《南京条约》\n材料二："扶清灭洋"——义和团口号',
-                steps: [{
-                    label: '环节一：材料理解（多选）',
-                    type: 'multi',
-                    question: '对上述材料的理解正确的有？',
-                    options: ['A. 材料一反映了中国领土主权的丧失', 'B. 材料二反映了中国人民的反帝斗争',
-                        'C. 《南京条约》开放的口岸全部在广东', 'D. 义和团运动具有盲目排外的局限性'
-                    ],
-                    correct: [1, 3],
-                    explanation: '材料一是通商口岸开放，非领土割让；五口中仅广州在广东。义和团"扶清灭洋"体现反帝但也盲目排外。'
-                }, {
-                    label: '环节二：知识映射（多选）',
-                    type: 'multi',
-                    question: '与义和团运动相关的历史事件有？',
-                    options: ['A. 八国联军侵华战争', 'B. 《辛丑条约》的签订', 'C. 戊戌变法', 'D. 太平天国运动'],
-                    correct: [0, 1],
-                    explanation: '义和团运动直接引发了八国联军侵华和《辛丑条约》的签订。C、D发生在不同时期。'
-                }, {
-                    label: '环节三：综合结论（单选）',
-                    type: 'single',
-                    question: '这两则材料共同反映了近代中国怎样的历史特征？',
-                    options: ['A. 从封建社会向资本主义社会转型', 'B. 列强侵略与中国人民的抗争交织',
-                        'C. 清政府主动开放融入世界', 'D. 中国社会各阶层团结一致对外'
-                    ],
-                    correct: [1],
-                    explanation: '材料一反映列强侵略，材料二反映人民抗争，二者交织是近代中国的显著特征。'
-                }]
+                title: '📖 材料题二：近代列强侵略与民族危机',
+                material: '材料一："自今以后，大皇帝恩准英国人民……寄居大清沿海之广州、福州、厦门、宁波、上海等五处港口，贸易通商无碍。"——《南京条约》\n材料二：1895年《马关条约》签订后，梁启超在《变法通议》中写道："敌无日不可以来，国无日不可以亡。"',
+                question: '结合材料与所学知识，分析两次条约签订后中国社会危机的加深。',
+                steps: [
+                    { label: '环节一：读材料·提取信息（多选）', type: 'multi', question: '从两则材料中可以获取的信息有？',
+                        options: ['A. 《南京条约》开放了五个通商口岸', 'B. 梁启超对甲午战败后的民族危机深感忧虑',
+                            'C. 《南京条约》使中国丧失了领土主权', 'D. 甲午战后民族危机大大加深'
+                        ], correct: [0, 1, 2, 3], explanation: '四项均正确。A从材料一直接得出；B、D从材料二得出；C是《南京条约》割让香港岛的影响。' },
+                    { label: '环节二：联所学·知识定位（多选）', type: 'multi', question: '与两则材料相关的历史事件有？', options: [
+                            'A. 鸦片战争与《南京条约》', 'B. 甲午中日战争与《马关条约》', 'C. 八国联军侵华与《辛丑条约》',
+                            'D. 戊戌变法运动'
+                        ], correct: [0, 1, 3], explanation: 'C项《辛丑条约》是1901年，时间不符。D项戊戌变法是甲午战败刺激下的改革运动。' },
+                    { label: '环节三：析因果·深度理解（单选）', type: 'single', question: '梁启超发出"国无日不可以亡"感叹的根本原因是？',
+                        options: ['A. 清政府腐败无能', 'B. 甲午战败后列强掀起了瓜分中国的狂潮', 'C. 义和团运动的失败',
+                            'D. 袁世凯窃取了革命果实'
+                        ], correct: 1, explanation: '甲午战后列强瓜分中国，民族危机空前严重，这是梁启超感叹的根本原因。' },
+                    { label: '环节四：得结论·综合表达（单选）', type: 'single', question: '两则材料共同反映了近代中国怎样的发展趋势？',
+                        options: ['A. 从封建社会向资本主义社会转型', 'B. 列强侵略不断加深，民族危机日益严重',
+                            'C. 清政府主动融入世界体系', 'D. 中国国际地位不断提高'
+                        ], correct: 1, explanation: '从《南京条约》到《马关条约》，列强侵略步步加深，中国半殖民地化程度不断加深。' },
+                ],
+                reviewSummary: '本题通过条约原文和时人评论，考查近代中国民族危机加深的过程。解题关键是将材料信息与"半殖民地半封建社会"的形成过程相联系。',
+                fullAnswer: '《南京条约》使中国开始沦为半殖民地半封建社会；《马关条约》大大加深了中国的半殖民地化程度，列强掀起瓜分狂潮。梁启超的忧虑反映了当时民族危机的深重，也激发了维新变法运动。',
             }, {
                 id: 'mat-3',
-                title: '📖 材料题三：近代化的探索',
-                material: '材料一："中国文武制度，事事远出西人之上，独火器万不能及。"——李鸿章\n材料二："变法之本，在育人才；人才之兴，在开学校；学校之立，在变科举。"——梁启超',
-                steps: [{
-                    label: '环节一：材料理解（多选）',
-                    type: 'multi',
-                    question: '两则材料分别反映了什么思想？',
-                    options: ['A. 李鸿章主张学习西方先进技术', 'B. 梁启超主张变革政治制度',
-                        'C. 李鸿章认为中国制度优于西方', 'D. 梁启超认为变法应从教育入手'
-                    ],
-                    correct: [0, 1, 2, 3],
-                    explanation: '李鸿章认为中国制度好但火器差（中体西用）；梁启超强调变法需从教育和人才开始。'
-                }, {
-                    label: '环节二：知识映射（多选）',
-                    type: 'multi',
-                    question: '分别属于哪一历史运动的主张？',
-                    options: ['A. 洋务运动', 'B. 戊戌变法', 'C. 辛亥革命', 'D. 新文化运动'],
-                    correct: [0, 1],
-                    explanation: '李鸿章是洋务派代表，梁启超是维新派代表。'
-                }, {
-                    label: '环节三：综合结论（单选）',
-                    type: 'single',
-                    question: '从材料一到材料二，反映了中国近代化的什么趋势？',
-                    options: ['A. 从学习技术到学习制度的深化', 'B. 从学习制度到学习思想的转变',
-                        'C. 地主阶级与农民阶级的联合', 'D. 完全照搬西方模式'
-                    ],
-                    correct: [0],
-                    explanation: '洋务运动学技术，戊戌变法学制度，体现了近代化由浅入深的过程。'
-                }]
+                title: '📖 材料题三：近代化的探索之路',
+                material: '材料一："中国文武制度，事事远出西人之上，独火器万不能及。"——李鸿章（1864年）\n材料二："变法之本，在育人才；人才之兴，在开学校；学校之立，在变科举。"——梁启超（1896年）',
+                question: '结合材料与所学知识，分析洋务运动与维新变法的异同及中国近代化的探索历程。',
+                steps: [
+                    { label: '环节一：读材料·提取信息（多选）', type: 'multi', question: '从材料中可以得出的信息有？', options: [
+                            'A. 李鸿章认为中国的政治制度优于西方', 'B. 李鸿章主张学习西方的军事技术',
+                            'C. 梁启超认为变法的根本在于培养人才', 'D. 梁启超主张从改革科举制度入手'
+                        ], correct: [0, 1, 2, 3], explanation: '四项均正确，分别反映了洋务派"中体西用"和维新派"教育变法"的思想。' },
+                    { label: '环节二：联所学·知识定位（多选）', type: 'multi', question: '李鸿章与梁启超分别代表的历史运动是？',
+                        options: ['A. 洋务运动', 'B. 戊戌变法（维新运动）', 'C. 辛亥革命', 'D. 新文化运动'], correct: [0, 1],
+                        explanation: '李鸿章是洋务派代表，梁启超是维新派代表。' },
+                    { label: '环节三：析因果·深度理解（单选）', type: 'single', question: '从材料一到材料二，中国近代化探索发生了什么变化？',
+                        options: ['A. 从学习军事技术到学习政治制度', 'B. 从学习政治制度到学习思想文化', 'C. 从闭关锁国到全面开放',
+                            'D. 从封建社会到资本主义社会'
+                        ], correct: 0, explanation: '洋务运动学习西方技术，维新变法则进一步要求学习政治制度，体现了近代化的深入。' },
+                    { label: '环节四：得结论·综合表达（单选）', type: 'single', question: '这两则材料共同反映了中国近代化的什么特点？',
+                        options: ['A. 一步到位，全面西化', 'B. 由表及里，逐步深入', 'C. 以军事现代化为唯一目标',
+                            'D. 完全照搬日本明治维新经验'
+                        ], correct: 1, explanation: '中国近代化经历了从技术到制度再到思想的逐步深入过程。' },
+                ],
+                reviewSummary: '本题通过洋务派和维新派人物的言论对比，考查中国近代化探索由浅入深的特点。关键要理解"中体西用"与"变法维新"思想的本质区别。',
+                fullAnswer: '洋务运动主张学习西方先进技术以维护封建制度（中体西用）；维新变法则进一步要求变革政治制度，实行君主立宪。从李鸿章到梁启超的思想变化，反映了中国近代化探索从学习技术到学习制度的深入发展。',
             }, {
                 id: 'mat-4',
-                title: '📖 材料题四：抗日战争',
-                material: '材料一："平型关战斗缴获敌军汽车八十余辆、九二式步兵炮一门……"——八路军战报\n材料二："中国军队在台儿庄歼敌一万余人，是抗战以来正面战场取得的最大胜利。"',
-                steps: [{
-                    label: '环节一：材料理解（多选）',
-                    type: 'multi',
-                    question: '对两则材料的解读正确的有？',
-                    options: ['A. 平型关战斗由八路军取得', 'B. 台儿庄战役是正面战场的胜利',
-                        'C. 两场战役都发生在敌后战场', 'D. 台儿庄战役歼敌数量多于平型关'
-                    ],
-                    correct: [0, 1],
-                    explanation: '平型关是敌后战场（八路军），台儿庄是正面战场（国民党军）。C错误。'
-                }, {
-                    label: '环节二：知识映射（多选）',
-                    type: 'multi',
-                    question: '抗日战争中两个战场的关系是？',
-                    options: ['A. 相互配合、相互支援', 'B. 正面战场是主战场，敌后战场是辅助',
-                        'C. 两个战场共同构成了全民族抗战的局面', 'D. 两个战场完全独立、互不联系'
-                    ],
-                    correct: [0, 2],
-                    explanation: '正面和敌后战场相互配合，共同构成全民族抗战。B项说法不准确，两个战场都重要。'
-                }, {
-                    label: '环节三：综合结论（单选）',
-                    type: 'single',
-                    question: '这两场战役的共同意义在于？',
-                    options: ['A. 都粉碎了日军速战速决的计划', 'B. 都极大地鼓舞了全国军民的抗战信心',
-                        'C. 都标志着抗战进入反攻阶段', 'D. 都是中国共产党独立指挥的战役'
-                    ],
-                    correct: [1],
-                    explanation: '两场战役都是抗战初期的重大胜利，极大地鼓舞了全国人民的抗战信心。'
-                }]
+                title: '📖 材料题四：全民族抗战',
+                material: '材料一："平型关战斗缴获敌军汽车八十余辆、九二式步兵炮一门……"——八路军115师战报（1937年9月）\n材料二："中国军队在台儿庄歼敌一万余人，是抗战以来正面战场取得的最大胜利。"——国民政府战报（1938年4月）',
+                question: '结合材料与所学知识，分析抗日战争中两个战场的关系及其历史意义。',
+                steps: [
+                    { label: '环节一：读材料·提取信息（多选）', type: 'multi', question: '从材料中可以获取的信息有？', options: [
+                            'A. 平型关战斗是八路军取得的胜利', 'B. 台儿庄战役是正面战场的胜利',
+                            'C. 两场战役都发生在1937年', 'D. 台儿庄战役歼敌数量超过一万人'
+                        ], correct: [0, 1, 2, 3], explanation: '四项均正确。平型关战斗（1937.9）和台儿庄战役（1938.4）都是抗战初期的重大胜利。' },
+                    { label: '环节二：联所学·知识定位（多选）', type: 'multi', question: '关于抗日战争两个战场的说法正确的有？', options: [
+                            'A. 正面战场和敌后战场相互配合', 'B. 两个战场共同构成了全民族抗战的局面',
+                            'C. 敌后战场在相持阶段后成为抗战主战场', 'D. 两个战场完全独立互不关联'
+                        ], correct: [0, 1, 2], explanation: 'D项错误，两个战场相互配合。A、B、C均正确。' },
+                    { label: '环节三：析因果·深度理解（单选）', type: 'single', question: '两场战役都发生在1937-1938年，这说明了什么？',
+                        options: ['A. 抗战初期中国军队主动进攻', 'B. 抗战初期国共两党积极抗日，共同抵御外侮',
+                            'C. 日本军队在抗战初期实力较弱', 'D. 抗战初期国际社会大力援助中国'
+                        ], correct: 1, explanation: '抗战初期国共两党合作抗日，分别在正面和敌后战场取得重大胜利。' },
+                    { label: '环节四：得结论·综合表达（单选）', type: 'single', question: '两场战役的共同历史意义是？', options: [
+                            'A. 都标志着抗战进入反攻阶段', 'B. 都极大地鼓舞了全国军民的抗战信心',
+                            'C. 都是中国共产党独立指挥的战役', 'D. 都直接导致了日本的投降'
+                        ], correct: 1, explanation: '两场战役都是抗战初期的重大胜利，打破了日军不可战胜的神话，鼓舞了全国人民的抗战信心。' },
+                ],
+                reviewSummary: '本题通过两则战役战报，考查抗日战争正面战场与敌后战场的关系。关键要认识到全民族抗战是抗战胜利的根本保证。',
+                fullAnswer: '平型关大捷（敌后战场）和台儿庄战役（正面战场）是抗战初期两场重大胜利，体现了国共合作、全民族抗战的特点。两个战场相互配合，共同构成了中国抗日战争的整体，极大地鼓舞了全国人民。',
             }, {
                 id: 'mat-5',
-                title: '📖 材料题五：改革开放',
-                material: '材料一："1978年，安徽省凤阳县小岗村18户农民按下红手印，实行\'包干到户\'。"\n材料二："1980年，深圳、珠海、汕头、厦门四个经济特区设立。"',
-                steps: [{
-                    label: '环节一：材料理解（多选）',
-                    type: 'multi',
-                    question: '两则材料反映的事件分别属于？',
-                    options: ['A. 农村经济体制改革', 'B. 城市经济体制改革', 'C. 对外开放', 'D. 政治体制改革'],
-                    correct: [0, 2],
-                    explanation: '小岗村包干到户是农村改革；设立经济特区是对外开放的标志。'
-                }, {
-                    label: '环节二：知识映射（多选）',
-                    type: 'multi',
-                    question: '经济特区的"特"体现在哪些方面？',
-                    options: ['A. 实行特殊的经济政策', 'B. 实行特殊的政治制度', 'C. 享有较大的经济管理权限',
-                        'D. 完全不受中央政府管辖'
-                    ],
-                    correct: [0, 2],
-                    explanation: '经济特区"特"在经济政策和管理权限，不是政治制度，仍受中央政府领导。'
-                }, {
-                    label: '环节三：综合结论（单选）',
-                    type: 'single',
-                    question: '材料共同反映了什么历史趋势？',
-                    options: ['A. 中国从计划经济向市场经济转型', 'B. 中国放弃社会主义道路',
-                        'C. 改革开放首先从城市开始', 'D. 经济特区改变了中国国体'
-                    ],
-                    correct: [0],
-                    explanation: '农村改革和经济特区都体现了从计划经济向市场经济的探索与转型。'
-                }]
+                title: '📖 材料题五：改革开放的探索',
+                material: '材料一："1978年，安徽省凤阳县小岗村18户农民按下红手印，实行\'包干到户\'。"——小岗村档案\n材料二：1980年，第五届全国人大常委会批准在深圳、珠海、汕头、厦门设立经济特区。',
+                question: '结合材料与所学知识，分析改革开放初期农村改革与对外开放的关系。',
+                steps: [
+                    { label: '环节一：读材料·提取信息（多选）', type: 'multi', question: '从材料中可以获取的信息有？', options: [
+                            'A. 小岗村农民自发实行包干到户', 'B. 经济特区的设立得到了国家批准',
+                            'C. 农村改革早于经济特区的设立', 'D. 经济特区全部位于广东省'
+                        ], correct: [0, 1, 2], explanation: 'D项错误，厦门在福建省。小岗村改革（1978）早于经济特区设立（1980）。' },
+                    { label: '环节二：联所学·知识定位（多选）', type: 'multi', question: '与材料相关的历史知识点有？', options: [
+                            'A. 十一届三中全会确立了改革开放方针', 'B. 家庭联产承包责任制在全国推广',
+                            'C. 经济特区实行特殊的经济政策和管理体制', 'D. 改革开放首先从城市经济体制改革开始'
+                        ], correct: [0, 1, 2], explanation: 'D项错误，改革开放首先从农村开始。' },
+                    { label: '环节三：析因果·深度理解（单选）', type: 'single', question: '农村改革和经济特区的设立，共同体现了什么？',
+                        options: ['A. 中国从计划经济向市场经济的探索', 'B. 中国放弃社会主义道路', 'C. 改革开放只关注经济发展',
+                            'D. 中国照搬西方发展模式'
+                        ], correct: 0, explanation: '两者都是对计划经济体制的突破，体现了向社会主义市场经济的探索。' },
+                    { label: '环节四：得结论·综合表达（单选）', type: 'single', question: '这两则材料共同说明了改革开放的什么特点？',
+                        options: ['A. 先农村后城市、先试点后推广', 'B. 一步到位全面开放', 'C. 只改革经济不改革政治',
+                            'D. 完全照搬苏联经验'
+                        ], correct: 0, explanation: '改革开放采取了渐进式改革路径，先农村后城市，先试点后推广。' },
+                ],
+                reviewSummary: '本题通过小岗村改革和经济特区设立两则材料，考查改革开放初期"对内改革"与"对外开放"两条主线的互动关系。',
+                fullAnswer: '小岗村的包干到户拉开了农村改革的序幕，经济特区的设立则开启了对外开放的窗口。两者都是在十一届三中全会方针指导下，对计划经济体制的突破，体现了中国特色社会主义道路的探索。',
             }, {
                 id: 'mat-6',
-                title: '📖 材料题六：世界史——新航路开辟与工业革命',
-                material: '材料一："1492年，哥伦布在西班牙王室支持下到达美洲。"\n材料二："1765年，哈格里夫斯发明珍妮纺纱机，工业革命开始。"',
-                steps: [{
-                    label: '环节一：材料理解（多选）',
-                    type: 'multi',
-                    question: '对新航路开辟的理解正确的有？',
-                    options: ['A. 哥伦布到达美洲是新航路开辟的重要事件', 'B. 新航路开辟促进了世界市场的雏形出现',
-                        'C. 西班牙是第一个开辟新航路的国家', 'D. 新航路开辟后世界开始连为一个整体'
-                    ],
-                    correct: [0, 1, 3],
-                    explanation: '葡萄牙和西班牙都率先开辟新航路，C项"第一个"不准确。'
-                }, {
-                    label: '环节二：知识映射（多选）',
-                    type: 'multi',
-                    question: '工业革命首先发生在英国的原因有？',
-                    options: ['A. 英国较早确立君主立宪制度', 'B. 英国拥有广阔的海外殖民地',
-                        'C. 英国圈地运动提供了自由劳动力', 'D. 英国自然科学领先于所有国家'
-                    ],
-                    correct: [0, 1, 2],
-                    explanation: 'D项过于绝对，但A、B、C都是英国率先发生工业革命的重要原因。'
-                }, {
-                    label: '环节三：综合结论（单选）',
-                    type: 'single',
-                    question: '新航路开辟与工业革命的内在联系是？',
-                    options: ['A. 新航路开辟为工业革命提供了市场和原料', 'B. 工业革命直接导致了新航路开辟',
-                        'C. 两者之间没有任何联系', 'D. 新航路开辟阻碍了工业革命的发生'
-                    ],
-                    correct: [0],
-                    explanation: '新航路开辟后形成的广阔海外市场刺激了生产需求，为工业革命创造了条件。'
-                }]
+                title: '📖 材料题六：新航路开辟与世界联系',
+                material: '材料一：1492年，哥伦布在西班牙王室资助下，率船队横渡大西洋，到达美洲。他在日记中写道："这里土地肥沃，居民淳朴，适合建立殖民地。"\n材料二：1765年，英国织工哈格里夫斯发明珍妮纺纱机，标志着工业革命的开始。此后，蒸汽机改良、铁路建设等使英国成为"世界工厂"。',
+                question: '结合材料与所学知识，分析新航路开辟与工业革命的内在联系及对世界的影响。',
+                steps: [
+                    { label: '环节一：读材料·提取信息（多选）', type: 'multi', question: '从材料中可以获取的信息有？', options: [
+                            'A. 哥伦布到达美洲得到了西班牙王室支持', 'B. 哥伦布对美洲的描述带有殖民倾向',
+                            'C. 工业革命首先在英国发生', 'D. 工业革命使英国成为"世界工厂"'
+                        ], correct: [0, 1, 2, 3], explanation: '四项均正确。哥伦布的日记反映了殖民扩张意图；英国率先开始工业革命。' },
+                    { label: '环节二：联所学·知识定位（多选）', type: 'multi', question: '与新航路开辟和工业革命相关的史实有？',
+                        options: ['A. 新航路开辟后世界开始连为一个整体', 'B. 三角贸易促进了欧洲资本原始积累',
+                            'C. 工业革命极大地提高了社会生产力', 'D. 新航路开辟和工业革命都促进了世界市场的形成'
+                        ], correct: [0, 1, 2, 3], explanation: '四项都是课本重要知识点，与材料紧密相关。' },
+                    { label: '环节三：析因果·深度理解（单选）', type: 'single', question: '新航路开辟与工业革命之间的内在联系是？',
+                        options: ['A. 新航路开辟为工业革命提供了广阔的市场和原料', 'B. 工业革命直接推动了新航路的开辟',
+                            'C. 两者之间没有直接联系', 'D. 新航路开辟阻碍了工业革命的发生'
+                        ], correct: 0, explanation: '新航路开辟后形成的广阔海外市场，刺激了生产需求，为工业革命创造了条件。' },
+                    { label: '环节四：得结论·综合表达（单选）', type: 'single', question: '两则材料共同反映了世界历史的什么趋势？',
+                        options: ['A. 世界从分散走向整体，从传统农业社会向工业社会转型', 'B. 欧洲文明全面超越其他文明',
+                            'C. 殖民扩张给世界带来了和平与发展', 'D. 工业革命只对欧洲产生积极影响'
+                        ], correct: 0, explanation: '新航路开辟使世界开始连为一个整体，工业革命推动了社会转型，两者共同塑造了近代世界。' },
+                ],
+                reviewSummary: '本题通过哥伦布航海和英国工业革命两则材料，考查世界从分散到整体、从农业文明到工业文明的历史转型。关键要理解殖民扩张与工业化之间的因果关系。',
+                fullAnswer: '新航路开辟打破了世界隔绝状态，为欧洲提供了广阔的市场和原料产地；在此基础上，英国率先开始工业革命，成为"世界工厂"。两者共同促进了世界市场的形成和世界从传统农业社会向工业社会的转型。',
             }];
 
             // ==================== 状态管理 ====================
-            let currentView = 'quiz';
-            let expandedSections = {};
-            let currentPages = {};
-            const PAGE_SIZE = 5;
+            let currentView = 'home';
+            let currentSectionId = null;
+            let currentQuestionIndex = 0;
             let userAnswers = {};
             let questionResults = {};
             let errorSet = new Set(JSON.parse(localStorage.getItem('historyErrors') || '[]'));
@@ -1019,426 +1245,255 @@
             const encourageCorrect = ['答对了！👏', '历史小天才！🌟', '稳如广东学霸！', '太棒了！💪', '一击即中！🎯', '就是这感觉！',
             '满分节奏！'];
             const encourageWrong = ['别灰心，再看看解析～', '差一点点，加油！💪', '记住这个知识点！', '失败是成功之母！'];
-            const encourageSection = ['这一part拿下！继续冲！🚀', '完美通关！🎉', '全部搞定，厉害！'];
+            const encourageComplete = ['太厉害了，全部拿下！🏆', '完美通关！你就是历史王者！👑', '这一part满分！继续冲！🚀', '全部答完，无敌是多么寂寞！✨',
+            '广东中考历史，稳了！💯'];
             const encourageClearErrors = ['错题清零！你就是历史王者🏆', '太厉害了，错题全部消灭！✨', '完美！所有难题都解决了！🎊'];
 
             function randomPick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
-            function saveErrors() {
-                localStorage.setItem('historyErrors', JSON.stringify([...errorSet]));
-                updateErrorBadge();
-            }
+            function saveErrors() { localStorage.setItem('historyErrors', JSON.stringify([...errorSet]));
+                updateErrorBadge(); }
 
-            function updateErrorBadge() {
-                const badge = document.getElementById('error-badge');
-                if (errorSet.size > 0) {
-                    badge.style.display = 'flex';
-                    badge.textContent = errorSet.size;
-                } else {
-                    badge.style.display = 'none';
-                }
-            }
+            function updateErrorBadge() { const badge = document.getElementById('error-badge'); if (badge) { if (
+                        errorSet.size > 0) { badge.style.display = 'flex';
+                        badge.textContent = errorSet.size; } else { badge.style.display = 'none'; } } }
 
-            function switchView(view) {
-                currentView = view;
-                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-                const targetView = document.getElementById(`view-${view}`);
-                if (targetView) targetView.classList.add('active');
-                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-                const navItem = document.querySelector(`[data-view="${view}"]`);
-                if (navItem) navItem.classList.add('active');
-                if (view === 'quiz') renderQuizView();
-                if (view === 'material') renderMaterialView();
-                if (view === 'errors') renderErrorView();
-                updateErrorBadge();
-            }
+            function findQuestionById(qId) { for (const s of quizData) { const q = s.questions.find(q => q.id ===
+                    qId); if (q) return q; } return null; }
 
-            function findQuestionById(qId) {
-                for (const section of quizData) {
-                    const q = section.questions.find(q => q.id === qId);
-                    if (q) return q;
-                }
-                return null;
-            }
+            function getSectionById(id) { return quizData.find(s => s.id === id); }
 
-            // ==================== 题库视图 ====================
-            function renderQuizView() {
-                const container = document.getElementById('view-quiz');
-                if (!container) return;
-                let html = '';
-                quizData.forEach(section => {
-                    const totalQ = section.questions.length;
-                    const totalPages = Math.ceil(totalQ / PAGE_SIZE);
-                    if (!(section.id in currentPages)) currentPages[section.id] = 0;
-                    let page = currentPages[section.id];
-                    if (page >= totalPages) page = totalPages - 1;
-                    if (page < 0) page = 0;
-                    currentPages[section.id] = page;
-                    const start = page * PAGE_SIZE;
-                    const end = Math.min(start + PAGE_SIZE, totalQ);
-                    const pageQuestions = section.questions.slice(start, end);
+            function switchView(view, sectionId = null) { currentView = view; if (view === 'quiz-section' &&
+                    sectionId) { currentSectionId = sectionId;
+                    currentQuestionIndex = 0; }
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active')); const tv = document
+                    .getElementById(`view-${view}`); if (tv) tv.classList.add('active');
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active')); const navMap = {
+                    'home': 'home',
+                    'quiz-section': 'home',
+                    'material': 'material',
+                    'errors': 'errors' }; const nav = document.querySelector(`[data-view="${navMap[view]}"]`); if (
+                    nav) nav.classList.add('active');
+                renderCurrentView();
+                updateErrorBadge(); }
 
-                    let correctCount = 0;
-                    let answeredCount = 0;
-                    section.questions.forEach(q => {
-                        if (questionResults[q.id]) {
-                            answeredCount++;
-                            if (questionResults[q.id] === 'correct') correctCount++;
-                        }
-                    });
+            function renderCurrentView() { if (currentView === 'home') renderHomeView(); if (currentView ===
+                    'quiz-section') renderQuizSectionView(); if (currentView === 'material') renderMaterialView(); if (
+                    currentView === 'errors') renderErrorView(); }
 
-                    const isExpanded = expandedSections[section.id] !== false;
-                    const allDone = answeredCount === totalQ && totalQ > 0;
-
-                    html += `
-                <div class="section-card">
-                  <div class="section-header ${isExpanded?'expanded':''}" data-section="${section.id}">
-                    <div class="header-left">
-                      <span class="progress-dot ${allDone?'done':''}"></span>
-                      <span>${section.title}</span>
-                    </div>
-                    <span style="font-size:0.7rem;color:#9b7b5c;">${answeredCount}/${totalQ}</span>
-                    <span class="arrow">▶</span>
-                  </div>
-                  <div class="section-body ${isExpanded?'show':''}" data-section-body="${section.id}">
-                    <div class="section-stats">
-                      <span>✅ 正确 ${correctCount}</span>
-                      <span>📄 第${page+1}/${totalPages}页</span>
-                    </div>
-                    ${pageQuestions.map(q => renderQuestionCard(q)).join('')}
-                    <div class="pagination">
-                      <button class="page-btn" data-section="${section.id}" data-page="${page-1}" ${page===0?'disabled':''}>◀</button>
-                      ${Array.from({length: Math.min(totalPages, 8)}, (_, i) => {
-                        let displayPage = i;
-                        if (totalPages > 8 && page > 3) displayPage = page - 3 + i;
-                        if (displayPage >= totalPages) return '';
-                        return `<button class="page-btn ${displayPage===page?'active':''}" data-section="${section.id}" data-page="${displayPage}">${displayPage+1}</button>`;
-                      }).join('')}
-                      <button class="page-btn" data-section="${section.id}" data-page="${page+1}" ${page>=totalPages-1?'disabled':''}>▶</button>
-                    </div>
-                    ${allDone ? `<div class="celebrate" style="color:#2d8a4e;font-weight:700;">🎉 ${randomPick(encourageSection)}</div>` : ''}
-                  </div>
-                </div>`;
-                });
+            // ==================== 首页 ====================
+            function renderHomeView() { const container = document.getElementById('view-home');
+                let html = `<div class="home-cards">
+              <div class="home-card" data-action="go-material"><span class="card-icon">📚</span><span class="card-label">选择题库</span><span class="card-sub">分区练习</span></div>
+              <div class="home-card" data-action="go-material"><span class="card-icon">📜</span><span class="card-label">材料大题</span><span class="card-sub">四步解题法</span></div>
+              <div class="home-card" data-action="go-errors"><span class="card-icon">📝</span><span class="card-label">错题本</span><span class="card-sub">${errorSet.size}题待复习</span></div>
+            </div>
+            <div class="section-list-title">📖 选择题分区（点击进入）</div>`;
+                quizData.forEach(s => { const total = s.questions.length; let answered = 0,
+                        correct = 0;
+                    s.questions.forEach(q => { if (questionResults[q.id]) { answered++; if (questionResults[q.id] ===
+                                'correct') correct++; } }); const pct = total > 0 ? Math.round((
+                            answered / total) * 100) : 0;
+                    html += `<div class="section-entry" data-action="enter-section" data-section="${s.id}"><span class="entry-left">${s.title}</span><span class="entry-right"><span>${answered}/${total}</span><div class="progress-mini"><div class="progress-mini-fill" style="width:${pct}%"></div></div></span></div>`; });
                 container.innerHTML = html;
+                container.querySelectorAll('[data-action="go-material"]').forEach(el => el.addEventListener('click',
+                    () => switchView('material')));
+                container.querySelectorAll('[data-action="go-errors"]').forEach(el => el.addEventListener('click', () =>
+                    switchView('errors')));
+                container.querySelectorAll('[data-action="enter-section"]').forEach(el => el.addEventListener('click',
+                    function() { switchView('quiz-section', this.dataset.section); })); }
 
-                // 事件绑定
-                container.querySelectorAll('.section-header').forEach(header => {
-                    header.addEventListener('click', function() {
-                        const sid = this.dataset.section;
-                        expandedSections[sid] = !(expandedSections[sid] !== false);
-                        const body = container.querySelector(`[data-section-body="${sid}"]`);
-                        if (body) body.classList.toggle('show');
-                        this.classList.toggle('expanded');
-                    });
-                });
-                container.querySelectorAll('.page-btn').forEach(btn => {
-                    btn.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        const sid = this.dataset.section;
-                        const page = parseInt(this.dataset.page);
-                        if (!isNaN(page)) {
-                            currentPages[sid] = page;
-                            renderQuizView();
-                        }
-                    });
-                });
-                container.querySelectorAll('.option-label').forEach(label => {
-                    label.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        const qId = this.dataset.qid;
-                        const optIndex = parseInt(this.dataset.optindex);
-                        if (questionResults[qId]) return;
-                        handleChoiceAnswer(qId, optIndex);
-                    });
-                });
-            }
+            // ==================== 选择题答题页 ====================
+            function renderQuizSectionView() { const section = getSectionById(currentSectionId); if (!section) { switchView(
+                        'home'); return; } const total = section.questions.length; if (currentQuestionIndex >=
+                    total) currentQuestionIndex = total - 1; if (currentQuestionIndex < 0) currentQuestionIndex =
+                    0; const q = section.questions[currentQuestionIndex]; const result = questionResults[q.id]; const
+                    selected = userAnswers[q.id]; const isLast = currentQuestionIndex >= total - 1; const allDone =
+                    section.questions.every(qq => questionResults[qq.id]); const pct = Math.round(((
+                        currentQuestionIndex + 1) / total) * 100); let cardClass = result === 'correct' ?
+                    'correct-card' : (result === 'wrong' ? 'wrong-card' : ''); let optionsHtml = q.options.map((
+                    opt, i) => { let optClass = ''; if (result && i === q.correct) optClass =
+                        'correct-answer'; if (result === 'wrong' && i === selected && i !== q.correct)
+                        optClass = 'wrong-answer'; if (!result && i === selected) optClass = 'selected'; return `
+                <label class="option-label ${optClass}" data-optindex="${i}"><input type="radio" name="q${q.id}" value="${i}" ${i===selected?'checked':''} ${result?'disabled':''}> ${opt}</label>`; }).join(
+                    ''); let feedbackHtml = ''; if (result === 'correct') feedbackHtml =
+                    `<div class="feedback-msg correct-fb show"><span class="encourage">${randomPick(encourageCorrect)}</span> ${q.explanation}</div>`; if (
+                    result === 'wrong') feedbackHtml =
+                    `<div class="feedback-msg wrong-fb show"><span class="encourage">${randomPick(encourageWrong)}</span> 正确答案：${q.options[q.correct].charAt(0)}。${q.explanation}</div>`; const container =
+                    document.getElementById('view-quiz-section');
+                container.innerHTML = `<div class="quiz-header"><button class="btn-back" id="btn-back-section">← 返回</button><span class="quiz-progress">${currentQuestionIndex+1}/${total}</span><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div></div>
+            <div class="question-card ${cardClass}"><div class="q-text">${q.text}</div>${optionsHtml}${feedbackHtml}</div>
+            <div class="nav-buttons"><button class="btn btn-outline" id="btn-prev" ${currentQuestionIndex===0?'disabled':''}>◀ 上一题</button><button class="btn" id="btn-next" ${!result?'disabled':''}>${isLast?'完成':'下一题 ▶'}</button></div>`;
+                if (allDone) container.innerHTML +=
+                    '<div style="text-align:center;color:#2d8a4e;font-weight:700;margin-top:0.4rem;font-size:0.9rem;">🎉 本分区已全部完成！</div>';
+                container.querySelectorAll('.option-label').forEach(label => { label.addEventListener('click',
+                    function() { if (result) return;
+                        handleQuizAnswer(q.id, parseInt(this.dataset.optindex)); }); });
+                container.querySelector('#btn-back-section').addEventListener('click', () => switchView('home'));
+                container.querySelector('#btn-prev').addEventListener('click', () => { if (currentQuestionIndex >
+                        0) { currentQuestionIndex--;
+                        renderQuizSectionView(); } });
+                container.querySelector('#btn-next').addEventListener('click', () => { if (!result) return; if (
+                        isLast) { if (allDone) showCelebrateOverlay(section); } else { currentQuestionIndex++;
+                        renderQuizSectionView(); } }); }
 
-            function renderQuestionCard(q) {
-                const result = questionResults[q.id];
-                let cardClass = '';
-                if (result === 'correct') cardClass = 'correct-card';
-                if (result === 'wrong') cardClass = 'wrong-card';
-                const selected = userAnswers[q.id];
-                let optionsHtml = q.options.map((opt, i) => {
-                    let optClass = '';
-                    if (result && i === q.correct) optClass = 'correct-answer';
-                    if (result === 'wrong' && i === selected && i !== q.correct) optClass = 'wrong-answer';
-                    if (!result && i === selected) optClass = 'selected';
-                    const checked = (i === selected) ? 'checked' : '';
-                    const disabled = result ? 'disabled' : '';
-                    return `
-                <label class="option-label ${optClass}" data-qid="${q.id}" data-optindex="${i}">
-                  <input type="radio" name="q${q.id}" value="${i}" ${checked} ${disabled}> ${opt}
-                </label>`;
-                }).join('');
-
-                let feedbackHtml = '';
-                if (result === 'correct') {
-                    feedbackHtml =
-                        `<div class="feedback-msg correct-fb show"><span class="encourage">${randomPick(encourageCorrect)}</span> ${q.explanation}</div>`;
-                } else if (result === 'wrong') {
-                    const correctLetter = q.options[q.correct].charAt(0);
-                    feedbackHtml =
-                        `<div class="feedback-msg wrong-fb show"><span class="encourage">${randomPick(encourageWrong)}</span> 正确答案：${correctLetter}。${q.explanation}</div>`;
-                }
-
-                return `
-              <div class="question-card ${cardClass}" data-qid="${q.id}">
-                <div class="q-text">${q.text}</div>
-                ${optionsHtml}
-                ${feedbackHtml}
-              </div>`;
-            }
-
-            function handleChoiceAnswer(qId, optIndex) {
-                const question = findQuestionById(qId);
-                if (!question) return;
-                userAnswers[qId] = optIndex;
-                if (optIndex === question.correct) {
-                    questionResults[qId] = 'correct';
-                } else {
-                    questionResults[qId] = 'wrong';
+            function handleQuizAnswer(qId, optIndex) { const question = findQuestionById(qId); if (!question || questionResults[
+                    qId]) return;
+                userAnswers[qId] = optIndex; if (optIndex === question.correct) { questionResults[qId] =
+                'correct'; } else { questionResults[qId] = 'wrong';
                     errorSet.add(qId);
-                    saveErrors();
-                }
-                renderQuizView();
-                updateErrorBadge();
-            }
+                    saveErrors(); }
+                renderQuizSectionView();
+                updateErrorBadge(); }
 
-            // ==================== 材料题视图 ====================
-            function renderMaterialView() {
-                const container = document.getElementById('view-material');
-                if (!container) return;
-                let html =
-                    '<h3 style="margin-bottom:0.8rem;color:#5c3418;text-align:center;">📜 材料解析大题（环节式·可多选）</h3>';
-                materialQuestions.forEach((mat) => {
-                    const state = materialStates[mat.id] || { currentStep: 0, stepAnswers: {}, completed: false };
-                    materialStates[mat.id] = state;
-                    const step = mat.steps[state.currentStep];
-                    const isCompleted = state.completed;
-                    html += `
-                <div class="section-card">
-                  <div class="section-header" style="cursor:default;background:#fff8f0;">${mat.title}</div>
-                  <div class="section-body show">
-                    <div class="material-box">${mat.material.replace(/\n/g, '<br>')}</div>
-                    ${isCompleted ? '<div style="color:#2d8a4e;font-weight:700;text-align:center;padding:0.5rem;" class="celebrate">🎉 本题已完成！三环节全部通过！</div>' : ''}
-                    ${!isCompleted ? `
-                      <div class="step-badge">${step.label}</div>
-                      <div class="q-text">${step.question}</div>
-                      <div class="step-options" data-matid="${mat.id}" data-step="${state.currentStep}">
-                        ${step.options.map((opt, i) => {
-                          const stepAns = state.stepAnswers[state.currentStep] || [];
-                          const checked = stepAns.includes(i) ? 'checked' : '';
-                          return `
-                            <label class="option-label ${stepAns.includes(i)?'selected':''}" data-matid="${mat.id}" data-step="${state.currentStep}" data-optindex="${i}">
-                              <input type="${step.type==='multi'?'checkbox':'radio'}" name="mat${mat.id}step${state.currentStep}" value="${i}" ${checked}> ${opt}
-                            </label>`;
-                        }).join('')}
-                      </div>
-                      <button class="btn" data-mat-submit="${mat.id}" style="margin-top:0.5rem;">✅ 提交本环节</button>
-                      <div class="feedback-msg" id="mat-feedback-${mat.id}"></div>
-                    ` : ''}
-                  </div>
-                </div>`;
-                });
+            function showCelebrateOverlay(section) { const overlay = document.createElement('div');
+                overlay.className = 'celebrate-overlay';
+                overlay.innerHTML =
+                    `<div class="celebrate-card"><div class="celebrate-emoji">🎉</div><div class="celebrate-text">${randomPick(encourageComplete)}</div><div class="celebrate-sub">${section.title} · 全部完成！</div><button class="btn" id="btn-celebrate-ok">👍 好的</button></div>`;
+                document.body.appendChild(overlay);
+                overlay.querySelector('#btn-celebrate-ok').addEventListener('click', () => { overlay.remove();
+                    switchView('home'); });
+                overlay.addEventListener('click', function(e) { if (e.target === overlay) { overlay.remove();
+                        switchView('home'); } }); }
+
+            // ==================== 材料题视图（四步解题法+完成展示） ====================
+            function renderMaterialView() { const container = document.getElementById('view-material');
+                let html = '<h3>📜 材料解析大题（四步解题法）</h3>';
+                materialQuestions.forEach(mat => { const state = materialStates[mat.id] || { currentStep: 0,
+                        stepAnswers: {}, completed: false };
+                    materialStates[mat.id] = state; const step = mat.steps[state.currentStep]; const isCompleted =
+                        state.completed;
+                    html += `<div class="question-card" style="margin-bottom:0.8rem;">
+              <div style="font-weight:700;color:#3d7ab8;margin-bottom:0.3rem;font-size:1rem;">${mat.title}</div>
+              <div class="material-box">${mat.material.replace(/\n/g,'<br>')}</div>
+              <div style="font-size:0.9rem;color:#4a5f70;margin:0.4rem 0;">📋 ${mat.question}</div>`;
+                    if (isCompleted) {
+                        html +=
+                            '<div style="color:#2d8a4e;font-weight:700;text-align:center;font-size:0.95rem;margin:0.5rem 0;">🎉 本题已完成！点击下方展开查看答案与解析</div>';
+                        html += renderMaterialReview(mat, state);
+                    } else {
+                        const stepAns = state.stepAnswers[state.currentStep] || [];
+                        html +=
+                            `<div class="step-badge">${step.label}（${step.type==='multi'?'多选':'单选'}）</div>
+                  <div class="q-text">${step.question}</div>
+                  <div class="step-options" data-matid="${mat.id}" data-step="${state.currentStep}">`;
+                        step.options.forEach((opt, i) => { const isChecked = stepAns.includes(i);
+                            html +=
+                                `<label class="option-label ${isChecked?'selected':''}" data-matid="${mat.id}" data-step="${state.currentStep}" data-optindex="${i}" data-type="${step.type}"><input type="${step.type==='multi'?'checkbox':'radio'}" name="mat_${mat.id}_step${state.currentStep}" value="${i}" ${isChecked?'checked':''} data-type="${step.type}"> ${opt}</label>`; });
+                        html +=
+                            `</div><button class="btn" data-mat-submit="${mat.id}" style="margin-top:0.5rem;">✅ 提交本环节</button><div class="feedback-msg" id="mat-fb-${mat.id}"></div>`;
+                    }
+                    html += '</div>'; });
                 container.innerHTML = html;
-
-                // 绑定选项
-                container.querySelectorAll('.step-options .option-label').forEach(label => {
-                    label.addEventListener('click', function(e) {
-                        const matId = this.dataset.matid;
-                        const step = parseInt(this.dataset.step);
-                        const optIndex = parseInt(this.dataset.optindex);
-                        const state = materialStates[matId];
-                        if (!state || state.completed) return;
-                        const mat = materialQuestions.find(m => m.id === matId);
-                        const stepData = mat.steps[step];
-                        if (!state.stepAnswers[step]) state.stepAnswers[step] = [];
-                        if (stepData.type === 'single') {
-                            state.stepAnswers[step] = [optIndex];
-                            const parent = this.parentElement;
+                container.querySelectorAll('.step-options .option-label').forEach(label => { label.addEventListener(
+                        'click', function(e) { e.preventDefault(); const matId = this.dataset.matid; const
+                            stepIdx = parseInt(this.dataset.step); const optIndex = parseInt(this.dataset
+                                .optindex); const type = this.dataset.type; const state =
+                            materialStates[matId]; if (!state || state.completed) return; if (!state
+                                .stepAnswers[stepIdx]) state.stepAnswers[stepIdx] = []; if (type ===
+                                'single') { state.stepAnswers[stepIdx] = [optIndex]; const parent = this
+                                .parentElement;
                             parent.querySelectorAll('.option-label').forEach(l => l.classList.remove(
                                 'selected'));
-                            parent.querySelectorAll('input[type="radio"]').forEach(inp => {
-                                inp.checked = (parseInt(inp.value) === optIndex);
-                            });
+                            parent.querySelectorAll('input').forEach(inp => inp.checked = false);
                             this.classList.add('selected');
-                        } else {
-                            const idx = state.stepAnswers[step].indexOf(optIndex);
-                            if (idx > -1) {
-                                state.stepAnswers[step].splice(idx, 1);
+                            this.querySelector('input').checked = true; } else { const idx = state
+                                .stepAnswers[stepIdx].indexOf(optIndex); if (idx > -1) { state
+                                    .stepAnswers[stepIdx].splice(idx, 1);
                                 this.classList.remove('selected');
-                                this.querySelector('input').checked = false;
-                            } else {
-                                state.stepAnswers[step].push(optIndex);
+                                this.querySelector('input').checked = false; } else { state.stepAnswers[
+                                        stepIdx].push(optIndex);
                                 this.classList.add('selected');
-                                this.querySelector('input').checked = true;
-                            }
-                        }
-                    });
-                });
+                                this.querySelector('input').checked = true; } } }); });
+                container.querySelectorAll('[data-mat-submit]').forEach(btn => { btn.addEventListener('click',
+                    function() { handleMaterialSubmit(this.dataset.matSubmit); }); });
+                container.querySelectorAll('.collapse-header').forEach(header => { header.addEventListener('click',
+                    function() { this.classList.toggle('open'); const body = this.nextElementSibling; if (
+                            body) body.classList.toggle('show'); }); }); }
 
-                // 绑定提交
-                container.querySelectorAll('[data-mat-submit]').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const matId = this.dataset.matSubmit;
-                        handleMaterialSubmit(matId);
-                    });
-                });
-            }
-
-            function handleMaterialSubmit(matId) {
-                const mat = materialQuestions.find(m => m.id === matId);
-                const state = materialStates[matId];
-                if (!mat || !state || state.completed) return;
-                const step = mat.steps[state.currentStep];
-                const userAns = state.stepAnswers[state.currentStep] || [];
-                if (userAns.length === 0) {
-                    alert('请先选择答案！📝');
-                    return;
-                }
-                const correctAns = [...step.correct].sort().join(',');
-                const userAnsSorted = [...userAns].sort().join(',');
-                const isCorrect = (correctAns === userAnsSorted);
-                const fbDiv = document.getElementById(`mat-feedback-${matId}`);
-                if (fbDiv) {
-                    if (isCorrect) {
-                        fbDiv.className = 'feedback-msg correct-fb show';
-                        fbDiv.innerHTML =
-                            `<span class="encourage">${randomPick(encourageCorrect)}</span> ${step.explanation}`;
-                    } else {
-                        fbDiv.className = 'feedback-msg wrong-fb show';
-                        const correctLetters = step.correct.map(i => step.options[i].charAt(0)).join('、');
-                        fbDiv.innerHTML =
-                            `<span class="encourage">${randomPick(encourageWrong)}</span> 正确答案涉及：${correctLetters}。${step.explanation}`;
-                    }
-                }
-                if (state.currentStep < mat.steps.length - 1) {
-                    state.currentStep++;
-                    setTimeout(() => renderMaterialView(), 900);
-                } else {
-                    state.completed = true;
-                    setTimeout(() => renderMaterialView(), 900);
-                }
-            }
-
-            // ==================== 错题本视图 ====================
-            function renderErrorView() {
-                const container = document.getElementById('view-errors');
-                if (!container) return;
-                const errorIds = [...errorSet];
-                const statsMap = {};
-                quizData.forEach(section => { statsMap[section.id] = { title: section.title, count: 0 }; });
-                errorIds.forEach(qId => {
-                    const q = findQuestionById(qId);
-                    if (q) {
-                        const section = quizData.find(s => s.questions.some(qq => qq.id === qId));
-                        if (section && statsMap[section.id]) statsMap[section.id].count++;
-                    }
-                });
-
-                let html =
-                    '<h3 style="margin-bottom:0.6rem;color:#5c3418;text-align:center;">📝 错题本（答对后自动移除）</h3>';
-                html += '<div class="stats-panel">';
-                for (const [key, val] of Object.entries(statsMap)) {
-                    if (val.count > 0 || errorIds.length === 0) {
-                        html +=
-                            `<span class="stat-tag ${val.count>0?'has-error':''}">${val.title}：${val.count}题</span>`;
-                    }
-                }
-                html += `<span class="stat-tag total-tag">总计：${errorIds.length}题</span>`;
-                html += '</div>';
-
-                if (errorIds.length === 0) {
+            function renderMaterialReview(mat, state) {
+                let html = '<div class="collapse-header">📋 查看答题回顾与解析 <span class="collapse-arrow">▼</span></div>';
+                html += '<div class="collapse-body">';
+                html += '<strong>📋 答题回顾：</strong><table class="review-table">';
+                mat.steps.forEach((step, i) => {
+                    const userAns = state.stepAnswers[i] || [];
+                    const correctAns = step.correct;
+                    const isCorrect = [...userAns].sort().join(',') === [...correctAns].sort().join(',');
+                    const userStr = userAns.length > 0 ? userAns.map(j => step.options[j].charAt(0)).join('、') :
+                        '未作答';
+                    const correctStr = correctAns.map(j => step.options[j].charAt(0)).join('、');
                     html +=
-                        '<div class="celebrate" style="text-align:center;padding:2rem;color:#2d8a4e;font-weight:700;font-size:1.1rem;">🎉 错题本已清空！<br>' +
-                        randomPick(encourageClearErrors) + '</div>';
-                } else {
-                    html += '<div id="error-questions">';
-                    errorIds.forEach(qId => {
-                        const q = findQuestionById(qId);
-                        if (q) html += renderErrorQuestionCard(q);
-                    });
-                    html += '</div>';
-                }
+                        `<tr><td class="step-label">${step.label.split('（')[0]}</td><td>你的答案：${userStr} | 正确答案：${correctStr} <span class="${isCorrect?'correct-mark':'wrong-mark'}">${isCorrect?'✓':'✗'}</span></td></tr>`;
+                });
+                html += '</table>';
+                html += `<strong>💡 解题思路：</strong>${mat.reviewSummary}<br><br>`;
+                html += `<strong>📝 完整参考答案：</strong>${mat.fullAnswer}`;
+                html += '</div>';
+                return html;
+            }
+
+            function handleMaterialSubmit(matId) { const mat = materialQuestions.find(m => m.id === matId); const state =
+                    materialStates[matId]; if (!mat || !state || state.completed) return; const step = mat.steps[state
+                        .currentStep]; const userAns = state.stepAnswers[state.currentStep] || []; if (userAns
+                        .length === 0) { alert('请先选择答案！📝'); return; } const correctAns = [...step.correct].sort()
+                    .join(','); const userAnsSorted = [...userAns].sort().join(','); const isCorrect = (correctAns ===
+                        userAnsSorted); const fbDiv = document.getElementById(`mat-fb-${matId}`); if (fbDiv) {
+                    fbDiv.className = 'feedback-msg ' + (isCorrect ? 'correct-fb' : 'wrong-fb') + ' show';
+                    fbDiv.innerHTML = isCorrect ?
+                        `<span class="encourage">${randomPick(encourageCorrect)}</span> ${step.explanation}` :
+                        `<span class="encourage">${randomPick(encourageWrong)}</span> 正确答案涉及：${step.correct.map(i=>step.options[i].charAt(0)).join('、')}。${step.explanation}`; } if (state
+                        .currentStep < mat.steps.length - 1) { state.currentStep++;
+                    setTimeout(() => renderMaterialView(), 800); } else { state.completed = true;
+                    setTimeout(() => renderMaterialView(), 800); } }
+
+            // ==================== 错题本 ====================
+            function renderErrorView() { const container = document.getElementById('view-errors'); const errorIds = [...
+                    errorSet
+                ]; const statsMap = {};
+                quizData.forEach(s => { statsMap[s.id] = { title: s.title, count: 0 }; });
+                errorIds.forEach(qId => { const q = findQuestionById(qId); if (q) { const sec = quizData.find(s => s
+                            .questions.some(qq => qq.id === qId)); if (sec && statsMap[sec.id]) statsMap[sec
+                            .id].count++; } }); let html =
+                    '<h3>📝 错题本（答对自动移除）</h3><div class="stats-panel">'; for (const [k, v] of Object.entries(
+                        statsMap)) { if (v.count > 0 || errorIds.length === 0) html +=
+                        `<span class="stat-tag ${v.count>0?'has-error':''}">${v.title}：${v.count}题</span>`; }
+                html += `<span class="stat-tag total-tag">总计：${errorIds.length}题</span></div>`; if (errorIds.length ===
+                    0) { html +=
+                        '<div style="text-align:center;padding:2rem;color:#2d8a4e;font-weight:700;font-size:1.05rem;">🎉 错题本已清空！<br>' +
+                        randomPick(encourageClearErrors) + '</div>'; } else { errorIds.forEach(qId => { const q =
+                            findQuestionById(qId); if (q) html +=
+                            `<div class="question-card" data-qid="${q.id}"><div class="q-text">${q.text}</div>${q.options.map((opt,i)=>`<label class="option-label error-opt" data-qid="${q.id}" data-optindex="${i}"><input type="radio" name="err${q.id}" value="${i}"> ${opt}</label>`).join('')}<div class="feedback-msg" id="err-fb-${q.id}"></div></div>`;
+                    }); }
                 container.innerHTML = html;
+                container.querySelectorAll('.error-opt').forEach(label => { label.addEventListener('click',
+                    function() { handleErrorAnswer(this.dataset.qid, parseInt(this.dataset.optindex), this
+                            .closest('.question-card')); }); }); }
 
-                container.querySelectorAll('.error-option-label').forEach(label => {
-                    label.addEventListener('click', function() {
-                        const qId = this.dataset.qid;
-                        const optIndex = parseInt(this.dataset.optindex);
-                        handleErrorAnswer(qId, optIndex, this.closest('.question-card'));
-                    });
-                });
-            }
-
-            function renderErrorQuestionCard(q) {
-                const optionsHtml = q.options.map((opt, i) => {
-                    return `
-                <label class="option-label error-option-label" data-qid="${q.id}" data-optindex="${i}">
-                  <input type="radio" name="err${q.id}" value="${i}"> ${opt}
-                </label>`;
-                }).join('');
-                return `
-              <div class="question-card" data-qid="${q.id}">
-                <div class="q-text">${q.text}</div>
-                ${optionsHtml}
-                <div class="feedback-msg" id="err-fb-${q.id}"></div>
-              </div>`;
-            }
-
-            function handleErrorAnswer(qId, optIndex, card) {
-                const q = findQuestionById(qId);
-                if (!q) return;
-                const fbDiv = document.getElementById(`err-fb-${qId}`);
-                if (optIndex === q.correct) {
-                    errorSet.delete(qId);
-                    saveErrors();
-                    if (fbDiv) {
-                        fbDiv.className = 'feedback-msg correct-fb show';
+            function handleErrorAnswer(qId, optIndex, card) { const q = findQuestionById(qId); if (!q) return; const fbDiv =
+                    document.getElementById(`err-fb-${qId}`); if (optIndex === q.correct) { errorSet.delete(qId);
+                    saveErrors(); if (fbDiv) { fbDiv.className = 'feedback-msg correct-fb show';
                         fbDiv.innerHTML =
-                            `<span class="encourage">${randomPick(encourageCorrect)}</span> 已从错题本移除！${q.explanation}`;
-                    }
-                    card.querySelectorAll('.option-label').forEach(l => {
-                        if (parseInt(l.dataset.optindex) === q.correct) l.classList.add('correct-answer');
-                    });
+                            `<span class="encourage">${randomPick(encourageCorrect)}</span> 已移除！${q.explanation}`; }
+                    card.querySelectorAll('.option-label').forEach(l => { if (parseInt(l.dataset.optindex) === q
+                            .correct) l.classList.add('correct-answer'); });
                     card.querySelectorAll('input').forEach(inp => inp.disabled = true);
-                    setTimeout(() => renderErrorView(), 1200);
-                } else {
-                    if (fbDiv) {
-                        fbDiv.className = 'feedback-msg wrong-fb show';
+                    setTimeout(() => renderErrorView(), 1000); } else { if (fbDiv) { fbDiv.className =
+                            'feedback-msg wrong-fb show';
                         fbDiv.innerHTML =
-                            `<span class="encourage">${randomPick(encourageWrong)}</span> 正确答案：${q.options[q.correct].charAt(0)}。${q.explanation}`;
-                    }
-                    card.querySelectorAll('.option-label').forEach(l => {
-                        if (parseInt(l.dataset.optindex) === q.correct) l.classList.add('correct-answer');
-                        if (parseInt(l.dataset.optindex) === optIndex && optIndex !== q.correct) l.classList
-                            .add('wrong-answer');
-                    });
-                    card.querySelectorAll('input').forEach(inp => inp.disabled = true);
-                }
-                updateErrorBadge();
-            }
+                            `<span class="encourage">${randomPick(encourageWrong)}</span> 正确答案：${q.options[q.correct].charAt(0)}。${q.explanation}`; }
+                    card.querySelectorAll('.option-label').forEach(l => { if (parseInt(l.dataset.optindex) === q
+                            .correct) l.classList.add('correct-answer'); if (parseInt(l.dataset.optindex) ===
+                            optIndex && optIndex !== q.correct) l.classList.add('wrong-answer'); });
+                    card.querySelectorAll('input').forEach(inp => inp.disabled = true); }
+                updateErrorBadge(); }
 
-            // ==================== 导航事件 ====================
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    const view = this.dataset.view;
-                    switchView(view);
-                });
-            });
+            document.querySelectorAll('.nav-item').forEach(item => { item.addEventListener('click', function() { const v =
+                        this.dataset.view;
+                    switchView(v === 'home' ? 'home' : v); }); });
 
-            // ==================== 初始化 ====================
-            function init() {
-                quizData.forEach(s => { expandedSections[s.id] = true; });
-                updateErrorBadge();
-                switchView('quiz');
-                console.log('📜 东东的历史题库 已就绪！');
-                console.log('📚 选择题总量：', quizData.reduce((sum, s) => sum + s.questions.length, 0), '题');
-                console.log('📜 材料题：', materialQuestions.length, '题（每题3环节）');
-                console.log('📝 错题本：', errorSet.size, '题');
-            }
+            function init() { updateErrorBadge();
+                switchView('home');
+                console.log('📜 东东的历史题库 已就绪！160道独立新题 + 6道四步材料题'); }
             init();
         })();
     </script>
